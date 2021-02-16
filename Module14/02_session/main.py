@@ -15,3 +15,5 @@ if x2 != x1:
     print("y = ", k, " * x + ", b)
 else:
     print("0 =", "x-", x1)
+
+# зачёт!

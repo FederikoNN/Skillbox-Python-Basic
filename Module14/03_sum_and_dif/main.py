@@ -18,3 +18,5 @@ N = int(input('Введите число: '))
 print('\nСумма цифр:', sum_digit(N))
 print('Количество цифр в числе:', quantity_digit(N))
 print('Разность суммы и количества цифр:', sum_digit(N) - quantity_digit(N))
+
+# зачёт!

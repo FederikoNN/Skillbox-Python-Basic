@@ -13,3 +13,5 @@ x = float(input('Введите координату х: '))
 y = float(input('Введите координату y: '))
 radius = float(input('Введите радиус: '))
 check(x, y, radius)
+
+# зачёт!

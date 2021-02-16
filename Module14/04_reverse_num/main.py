@@ -25,3 +25,5 @@ print('\nПервое число наоборот:', N_rev)
 print('Второе число наоборот:', K_rev)
 sum_rev = K_rev + N_rev
 print('Сумма:', sum_rev)
+
+# зачёт!
