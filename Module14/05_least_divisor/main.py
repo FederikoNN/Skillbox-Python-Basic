@@ -1,12 +1,9 @@
 def common_divisor_min(n):
-    for x in range(2, n + 1):
-        if n % x == 0:
-            print("Наименьший делитель, отличный от единицы:", x)
+    for divisor in range(2, n + 1):
+        if n % divisor == 0:
+            print("Наименьший делитель, отличный от единицы:", divisor)
             break
 
 
-n = int(input('Введите число: '))
-common_divisor_min(n)
-
-# TODO, пожалуйста, поправьте нейминг
-#  Названия переменных из одной буквы не отражают суть их содержания.
+number = int(input('Введите число: '))
+common_divisor_min(number)
