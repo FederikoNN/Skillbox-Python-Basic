@@ -1,19 +1,17 @@
 def search_digit(x):
-    a = str(x % 10)
-    b = str((x // 10) % 10)
-    c = str(((x // 10) // 10) % 10)
-    d = str(x // 1000)
+    digit_4 = str(x % 10)
+    digit_3 = str((x // 10) % 10)
+    digit_2 = str(((x // 10) // 10) % 10)
+    digit_1 = str(x // 1000)
     count = 0
-    for n in str(x):
-        if a == n:
+    for digit in str(x):
+        if digit_4 == digit:
             count += 1
     if count == 3:
         print(x)
-    elif count == 1 and b == c == d:
+    elif count == 1 and digit_1 == digit_2 == digit_3:
         print(x)
 
-# TODO, пожалуйста, поправьте нейминг
-#  Названия переменных из одной буквы не отражают суть их содержания.
 
 year_first = int(input('Введите первый год: '))
 year_second = int(input('Введите второй год: '))
