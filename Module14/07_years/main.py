@@ -18,3 +18,5 @@ year_second = int(input('Введите второй год: '))
 print('\nГоды от', year_first, 'до', year_second, 'с тремя одинаковыми цифрами:')
 for year in range(year_first, year_second + 1):
     search_digit(year)
+
+# зачёт!

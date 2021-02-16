@@ -7,3 +7,5 @@ def common_divisor_min(n):
 
 number = int(input('Введите число: '))
 common_divisor_min(number)
+
+# зачёт!
