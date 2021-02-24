@@ -16,3 +16,5 @@ while True:
     if flag:
         print('Фильм', '"' + choice_film + '"', '" отсутствует в списке!')
 print('Список любимых фильмов:', favorite_films)
+
+# зачёт!

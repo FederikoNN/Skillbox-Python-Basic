@@ -19,3 +19,5 @@ for i in range(len(containers)):
     if new_container > containers[i]:
         print('\nНомер, куда встанет новый контейнер:', i + 1)
         break
+
+# зачёт!
