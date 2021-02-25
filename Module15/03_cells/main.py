@@ -10,3 +10,5 @@ for cell_number in range(1, len(cells_list) + 1):
 print('\nНеподходящие значения:', end='')
 for cell in wrong_cells_list:
     print(cell, end=' ')
+
+# зачёт!

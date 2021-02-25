@@ -2,3 +2,5 @@ names = ['Артемий', 'Борис', 'Влад', 'Гоша', 'Дима', 'Е
 
 for names_index in range(0, len(names), 2):
     print(names[names_index])
+
+# зачёт!

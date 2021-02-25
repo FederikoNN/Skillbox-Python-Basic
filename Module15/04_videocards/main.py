@@ -10,3 +10,5 @@ for list_index in range(1, len(video_cards_list) + 1):
             break
 print('\nСтарый список видеокарт:', video_cards_list)
 print('Новый список видеокарт:', video_cards_list_new)
+
+# зачёт!

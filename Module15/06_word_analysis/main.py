@@ -10,3 +10,5 @@ for sym_1 in word_by_sym:
     if words_count == 1:
         unique_letters += 1
 print('Кол-во уникальных букв:', unique_letters)
+
+# зачёт!
