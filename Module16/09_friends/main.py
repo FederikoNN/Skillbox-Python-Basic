@@ -4,10 +4,9 @@ friends_balance = []
 for _ in range(N):
     friends_balance.append(0)
 
-# TODO, как реализовать range таким образом, чтобы не производить в цикле вычисления (+1) с переменной цикла?
-for iou in range(K):
+for iou in range(1, K + 1):
     print()
-    print(iou + 1, 'расписка')
+    print(iou, 'расписка')
     to_whom = int(input('Кому: '))
     from_whom = int(input('От кого: '))
     how_much = int(input('Сколько: '))
