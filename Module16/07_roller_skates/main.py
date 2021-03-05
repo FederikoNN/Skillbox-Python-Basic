@@ -11,12 +11,14 @@ def difference_min(num, array):
 count_persons = 0
 rollers = []
 rollers_quantity = int(input('Кол-во коньков: '))
+# TODO, как реализовать range таким образом, чтобы не производить в цикле вычисления (+1) с переменной цикла?
 for rollers_num in range(rollers_quantity):
     print('Размер', rollers_num + 1, 'пары ', end='')
     rollers.append(int(input()))
 rollers.sort()
 
 people_num = int(input('\nКол-во людей: '))
+# TODO, как реализовать range таким образом, чтобы не производить в цикле вычисления (+1) с переменной цикла?
 for person in range(people_num):
     print('Размер ноги', person + 1, 'человека: ', end='')
     foot_size = int(input())
@@ -24,3 +26,4 @@ for person in range(people_num):
         count_persons += 1
 
 print('\nНаибольшее кол-во людей, которые могут взять ролики:', count_persons)
+
