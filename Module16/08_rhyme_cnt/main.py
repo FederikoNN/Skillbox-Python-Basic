@@ -9,3 +9,5 @@ while len(people) > 1:
     count_point = (count_point + K - 1) % len(people)
     people.remove(people[count_point])
 print('Остался человек под номером', people[0])
+
+# зачёт!
