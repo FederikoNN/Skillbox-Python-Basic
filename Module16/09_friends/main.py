@@ -16,3 +16,5 @@ for iou in range(1, K + 1):
 print('\nБаланс друзей:')
 for i_friends_balance in range(N):
     print(i_friends_balance + 1, ':', friends_balance[i_friends_balance])
+
+# зачёт!
