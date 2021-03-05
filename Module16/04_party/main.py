@@ -19,3 +19,5 @@ while True:
     else:
         print('Привет,', guest_name + '!')
         guests.append(guest_name)
+
+# зачёт!
