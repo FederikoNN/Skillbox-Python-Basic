@@ -20,3 +20,5 @@ for number in list_1:
         list_1.remove(number)
 
 print('\nНовый первый список с уникальными элементами:', list_1)
+
+# зачёт!
