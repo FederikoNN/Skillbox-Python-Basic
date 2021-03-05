@@ -21,3 +21,5 @@ for song_number in range(N):
             break
 
 print('\n\nОбщее время звучания песен:', round(total_time, 2), 'минут')
+
+# зачёт!
