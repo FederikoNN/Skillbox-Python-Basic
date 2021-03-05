@@ -9,3 +9,5 @@ for _ in range(a.count(5)):
 a.extend(c)
 print('\nКол-во цифр 3 при втором объединении:', a.count(3))
 print('\nИтоговый список:', a)
+
+# зачёт!
