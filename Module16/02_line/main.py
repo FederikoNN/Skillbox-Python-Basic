@@ -8,3 +8,5 @@ for i1_rank in range(len(rank_new) - 1):
         if rank_new[i1_rank] > rank_new[i2_rank]:
             rank_new[i1_rank], rank_new[i2_rank] = rank_new[i2_rank], rank_new[i1_rank]
 print('Отсортированный список', rank_new)
+
+# зачёт!
