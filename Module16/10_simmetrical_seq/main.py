@@ -26,3 +26,5 @@ if numbers_add:
         print(number, end=' ')
 else:
     print('\nПоследовательность симметричная')
+
+# зачёт!
