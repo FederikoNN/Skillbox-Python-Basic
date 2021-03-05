@@ -11,3 +11,5 @@ for item in shop:
         cost += item[1]
 print('\n\nКол-во деталей -', count)
 print('Общая стоимость -', cost)
+
+# зачёт!
