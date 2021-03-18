@@ -7,3 +7,5 @@ for i_cast in range(1, cast + 1):
     R_i = int(input('\nпо номер '))
     sticks_answer[L_i - 1: R_i] = ['.' for _ in range(L_i, R_i + 1)]
 print(''.join(sticks_answer))
+
+# зачёт!
