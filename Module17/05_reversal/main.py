@@ -1,5 +1,6 @@
 string = input('Введите строку: ')
 
-print('\nРезультат:', string[len(string) - string[::-1].index('h') - 2:string.index('h'):-1])
-# TODO, пожалуйста, обратите внимание, отбрасывать начало и конец строки не нужно.
-#  необходимо просто перевернуть середину между "h" =)
+string_changed = string[:string.index('h')] + string[len(string) - string[::-1].index(
+    'h') - 1:string.index('h'):-1] + string[len(string) - string[::-1].index('h') - 1:]
+
+print('\nРезультат:', string_changed)
