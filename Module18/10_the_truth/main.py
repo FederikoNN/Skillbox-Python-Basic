@@ -8,8 +8,7 @@ text_encrypt = 'vujgvmCfb tj ufscfu ouib z/vhm jdjuFyqm jt fscfuu uibo jdju/jnqm
 
 for word in text_encrypt.split():
     if word.find('/') != -1:
-        word1 = word.replace('/', '')
-        text_encrypt = text_encrypt.replace(word, word.replace('/', '') + '\n')
+        text_encrypt = text_encrypt.replace(word + " ", word + "\n ")
 
 text_decrypt = []
 shift = 3
@@ -22,4 +21,4 @@ for string in text_encrypt.splitlines():
 text_decrypt = [(alphabet[(alphabet.index(letter) + 51) % 52] if alphabet.count(letter) != 0 else letter) for letter
                 in " ".join(text_decrypt)]
 
-print("".join(text_decrypt))
+print("".join(text_decrypt).replace('/', '.').replace('..', '').replace('+', '').replace('(', "'"))
