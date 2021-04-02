@@ -14,3 +14,5 @@ for sym in string_in[1:]:
 string_out += letter_tmp + str(count)
 
 print('Закодированная строка: ', string_out)
+
+# зачёт!

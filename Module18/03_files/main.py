@@ -7,3 +7,5 @@ elif not file_name.endswith('.txt') and not file_name.endswith('.docx'):
     print('Ошибка: неверное расширение файла. Ожидалось .txt или .docx')
 else:
     print('Файл назван верно.')
+
+# зачёт!

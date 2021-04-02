@@ -22,3 +22,5 @@ text_decrypt = [(alphabet[(alphabet.index(letter) + 51) % 52] if alphabet.count(
                 in " ".join(text_decrypt)]
 
 print("".join(text_decrypt).replace('/', '.').replace('..', '').replace('+', '').replace('(', "'"))
+
+# зачёт! Молодец!
