@@ -17,3 +17,4 @@ while True:
     else:
         print('IP-адрес корректен')
 
+# зачёт!
