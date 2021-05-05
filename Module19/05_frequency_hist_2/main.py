@@ -1,12 +1,12 @@
 def dict_invert(dictionary):
     dictionary_invert = dict()
-    for i in dictionary.keys():
-        if dictionary.get(i) in dictionary_invert.keys():
-            a = list(dictionary_invert.get(dictionary.get(i)))
-            a.append(i)
-            dictionary_invert[dictionary.get(i)] = a
+    for key in dictionary.keys():
+        if dictionary.get(key) in dictionary_invert.keys():
+            a = list(dictionary_invert.get(dictionary.get(key)))
+            a.append(key)
+            dictionary_invert[dictionary.get(key)] = a
         else:
-            dictionary_invert[dictionary.get(i)] = list(i)
+            dictionary_invert[dictionary.get(key)] = list(key)
     return dictionary_invert
 
 
