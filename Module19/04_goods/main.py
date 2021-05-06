@@ -29,6 +29,8 @@ for good in goods.keys():
     goods_quantity = 0
     good_available = store.get(goods.get(good))
 
+    # TODO, предлагаю решить без конструкции range + len.
+    #  А сразу идти по списку выбрав его по ключу из словаря store, который мы получаем в первом цикле.
     for i_goods in range(len(good_available)):
         goods_sum += good_available[i_goods]['quantity'] * good_available[i_goods]['price']
         goods_quantity += good_available[i_goods]['quantity']

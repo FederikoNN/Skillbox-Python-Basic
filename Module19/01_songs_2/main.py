@@ -22,3 +22,5 @@ for i_song in range(1, N + 1):
             print('Ошибка! Нет такой песни.')
     total_time += violator_songs.get(song_name)
 print('\nОбщее время звучания песен:', round(total_time, 2), 'минут')
+
+# зачёт!

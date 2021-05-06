@@ -9,6 +9,7 @@ for i_order in range(1, N_orders + 1):
     if client not in orders_DB:
         orders_DB[client] = {pizza: quantity}
     elif pizza in orders_DB.get(client):
+        # TODO, предлагаю заменить такую конструкцию из кода ниже на "+=" =)
         orders_DB.get(client)[pizza] = int(orders_DB.get(client, {}).get(pizza)) + int(quantity)
     else:
         orders_DB.get(client)[pizza] = quantity
