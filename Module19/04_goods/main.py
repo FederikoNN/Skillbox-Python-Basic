@@ -27,12 +27,9 @@ store = {
 for good in goods.keys():
     goods_sum = 0
     goods_quantity = 0
+    good_available = store.get(goods.get(good))
 
-    # TODO, предлагаю попробовать сократить количество вычислений в коде.
-    #  К примеру, создать переменную равную tore.get(goods.get(good))
-    #  И далее в коде работать с ней.
-
-    for i_goods in range(len(store.get(goods.get(good)))):
-        goods_sum += (store.get(goods.get(good))[i_goods])['quantity'] * (store.get(goods.get(good))[i_goods])['price']
-        goods_quantity += store.get(goods.get(good))[i_goods]['quantity']
+    for i_goods in range(len(good_available)):
+        goods_sum += good_available[i_goods]['quantity'] * good_available[i_goods]['price']
+        goods_quantity += good_available[i_goods]['quantity']
     print(good, '-', goods_quantity, 'шт, стоимость', goods_sum, 'руб')
