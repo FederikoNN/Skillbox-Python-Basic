@@ -52,3 +52,5 @@ data.get('ETH')['total_out'] = data.get('tokens')[0].pop('total_out')
 data.get('tokens')[1].get('sec_token_info')['total_price'] = data.get('tokens')[1].get('sec_token_info').pop('price')
 
 print(data)
+
+# зачёт!

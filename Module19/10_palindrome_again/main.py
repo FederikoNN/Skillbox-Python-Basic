@@ -13,3 +13,5 @@ string = ''.join(input('Введите строку: ').lower().split())
 
 if palindrome_check(string):
     print('Можно сделать палиндромом')
+
+# зачёт!

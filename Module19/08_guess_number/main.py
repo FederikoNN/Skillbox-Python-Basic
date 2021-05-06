@@ -16,3 +16,5 @@ while True:
         print('Ответ Артёма: Да')
 
 print('Артём мог загадать следующие числа:', ' '.join(sorted(numbers_set)))
+
+# зачёт!

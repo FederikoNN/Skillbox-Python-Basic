@@ -21,3 +21,5 @@ while True:
     if synonym_search(synonym_dict, word):
         break
     print('Такого слова в словаре нет.')
+
+# зачёт!

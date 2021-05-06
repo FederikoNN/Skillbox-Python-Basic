@@ -13,6 +13,8 @@ violator_songs = {
 N = int(input('Сколько песен выбрать? '))
 total_time = 0
 for i_song in range(1, N + 1):
+    # TODO, первым делом необходимо проверить наличие ввода пользователя в ключах словаря.
+    #  Иначе, если слова нет в ключах, получим ошибку.
     print('\nНазвание', i_song, 'песни: ', end='')
     total_time += violator_songs.get(input())
 print('\nОбщее время звучания песен:', round(total_time, 2), 'минут')

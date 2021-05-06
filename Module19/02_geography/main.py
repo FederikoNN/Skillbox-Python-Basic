@@ -15,3 +15,5 @@ for count in range(1, 4):
             break
         elif country == list(country_dict.keys())[-1]:
             print('По городу', city, 'данных нет.')
+
+# зачёт!

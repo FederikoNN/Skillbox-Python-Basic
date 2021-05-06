@@ -22,3 +22,4 @@ print('“Высота” каждого члена семьи:')
 for member, height in sorted(family_members.items()):
     print(member, height)
 
+# зачёт!

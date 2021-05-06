@@ -25,3 +25,5 @@ for key, value in sorted(hist.items()):
 print('\nИнвертированный словарь частот:')
 for key, value in dict_invert(hist).items():
     print(key, ':', value)
+
+# зачёт!
