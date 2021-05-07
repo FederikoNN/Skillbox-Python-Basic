@@ -24,4 +24,14 @@ store = {
     ],
 }
 
-# TODO здесь писать код
+for good in goods.keys():
+    goods_sum = 0
+    goods_quantity = 0
+    good_available = store.get(goods.get(good))
+
+    for i_good in good_available:
+        goods_sum += i_good['quantity'] * i_good['price']
+        goods_quantity += i_good['quantity']
+    print(good, '-', goods_quantity, 'шт, стоимость', goods_sum, 'руб')
+
+# зачёт!
