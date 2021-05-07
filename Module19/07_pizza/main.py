@@ -17,3 +17,5 @@ for family, orders_list in sorted(orders_DB.items()):
     print(family + ':')
     for pizza, quantity in sorted(orders_list.items()):
         print('\t', pizza + ':', quantity)
+
+# зачёт!

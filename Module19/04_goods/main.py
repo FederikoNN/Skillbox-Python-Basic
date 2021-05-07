@@ -33,3 +33,5 @@ for good in goods.keys():
         goods_sum += i_good['quantity'] * i_good['price']
         goods_quantity += i_good['quantity']
     print(good, '-', goods_quantity, 'шт, стоимость', goods_sum, 'руб')
+
+# зачёт!
