@@ -24,3 +24,4 @@ for i_song in range(1, N + 1):
 print('\nОбщее время звучания песен:', round(total_time, 2), 'минут')
 
 # зачёт!
+# зачёт!
