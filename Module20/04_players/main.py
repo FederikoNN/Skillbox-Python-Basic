@@ -4,4 +4,5 @@ players = {
     ("Rob", "Bobbin"): (12, 8, 2)
 }
 
-# TODO здесь писать код
+players_list = [name + count for name, count in players.items()]
+print(players_list)
