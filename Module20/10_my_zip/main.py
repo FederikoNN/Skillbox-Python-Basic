@@ -1,4 +1,4 @@
-string = 'abcd'
+string = 'abcdaaa'
 numbers_tuple = (10, 20, 30, 40)
 print('Строка:', string)
 print('Кортеж чисел:', numbers_tuple)
@@ -16,3 +16,5 @@ def zip_alter(array_1, array_2):
 print(zip_alter(string, numbers_tuple))
 for i_tuple in zip_alter(string, numbers_tuple):
     print(i_tuple)
+
+# зачёт!

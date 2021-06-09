@@ -14,3 +14,5 @@ list_old = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 # Вариант 3
 list_new = [tuple(list_old[i - 2:i]) for i in range(2, len(list_old) + 1, 2)]
 print(list_new)
+
+# зачёт!

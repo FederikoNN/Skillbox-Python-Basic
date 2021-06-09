@@ -19,3 +19,5 @@ array_my = (1, 3, 5, 6, 8, 9, 2, 1, 3, 0)
 new_array = list_prime(array_my)
 
 print(new_array)
+
+# зачёт!

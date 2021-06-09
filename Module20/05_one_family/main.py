@@ -9,3 +9,5 @@ if surname.endswith('а'):
 for name in families.keys():
     if surname in name.lower():
         print(name, families.get(name))
+
+# зачёт!

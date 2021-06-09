@@ -6,3 +6,5 @@ players = {
 
 players_list = [name + count for name, count in players.items()]
 print(players_list)
+
+# зачёт!

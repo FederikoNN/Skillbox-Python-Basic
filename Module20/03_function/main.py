@@ -1,6 +1,6 @@
 def new_tuple_function(tuple, data):
     if tuple.count(data) == 0:
-        new_tuple = ()
+        new_tuple = ()  # Переменная получилась лишней, можно сразу вернуть ()
         return new_tuple
     elif tuple.count(data) == 1:
         return tuple[tuple.index(data):]
@@ -9,7 +9,10 @@ def new_tuple_function(tuple, data):
         return tuple[tuple.index(data):tmp]
 
 
-text = input('Введите что-нибудь: ')
-tuple_old = tuple([sym for sym in text])
+# text = input('Введите что-нибудь: ')
+# tuple_old = tuple([sym for sym in text])
+tuple_old = ("1", "2", "3", "4", "2", "5", "6")
 element = input('Введите элемент: ')
 print(new_tuple_function(tuple_old, element))
+
+# зачёт!

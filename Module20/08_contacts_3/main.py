@@ -17,3 +17,5 @@ while True:
             if name in entry.lower():
                 print(entry, phone_book.get(entry))
         print('Поиск завершен!')
+
+# зачёт!
