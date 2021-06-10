@@ -16,3 +16,5 @@ print('\nИтоги соревнований:')
 for i_list_protocol in range(3):
     print(i_list_protocol + 1, 'место.', list_protocol[i_list_protocol][0],
           '(' + str(list_protocol[i_list_protocol][1][0]) + ')')
+
+# зачёт!

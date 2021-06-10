@@ -8,3 +8,5 @@ def sort_tuple(tuple_ex):
 tuple_old = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 5)
 
 print(sort_tuple(tuple_old))
+
+# зачёт!
