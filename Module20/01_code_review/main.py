@@ -57,3 +57,4 @@ interests_list, total_length = total_data(students)
 print(interests_list, total_length)
 
 # зачёт!
+# зачёт!
