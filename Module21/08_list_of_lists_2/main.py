@@ -14,5 +14,4 @@ def list_extern(list_in):
     return list_ext
 
 
-list_extern(nice_list)
 print('Ответ:', list_extern(nice_list))
