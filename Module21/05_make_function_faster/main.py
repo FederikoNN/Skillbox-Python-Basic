@@ -3,6 +3,8 @@ def calculating_math_func(data, fact_result=None):  # TODO, вместо None с
     # TODO, блок if ниже получился лишний =)
     if fact_result is None:
         fact_result = {0: 1}
+    # TODO, стоит проверить, находится ли наше число в словаре или нет при помощи in =)
+    #  Длину словаря проверять не нужно, в словаре могут быть разные цифры.
     if data > len(fact_result) - 1:
         result = fact_result[len(fact_result) - 1]
         for index in range(len(fact_result), data + 1):
