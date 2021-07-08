@@ -1,10 +1,4 @@
-fact_result = {0: 1}
-# TODO, переменная вне функции получилась лишней.
-#  Т.к. нужна только во время выполнения функции.
-#  Стоит сделать у параметра fact_result значение поумолчанию пустой словарь =)
-
-
-def calculating_math_func(data, fact_result):
+def calculating_math_func(data, fact_result={0: 1}):
     if data > len(fact_result) - 1:
         result = fact_result[len(fact_result) - 1]
         for index in range(len(fact_result), data + 1):
@@ -21,5 +15,4 @@ def calculating_math_func(data, fact_result):
 
 while True:
     number = int(input('Введите число: '))
-    print('Результат:', calculating_math_func(number, fact_result))
-    print(fact_result)
+    print('Результат:', calculating_math_func(number))
