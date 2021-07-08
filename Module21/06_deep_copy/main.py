@@ -55,6 +55,10 @@ for _ in range(sites_num):
         tag_data = 'У нас самая низкая цена на {}'.format(i_product)
         change_sites(site, 'h2', tag_data)
         print('Сайт для {}:'.format(i_product))
+
+        # TODO, отличный вариант для вывод структуры сайта =)
+        #  В данном задании, нам необходимо написать свою функцию. Она будет очень похожа на функцию со сменой значений
+        #  в структуре словаря.
         print('site =', json.dumps(site, ensure_ascii=False, indent=4))
 
 product.clear()
