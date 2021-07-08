@@ -12,7 +12,7 @@ site = {
 }
 
 
-def find_key(struct, key, levels=1001, count_level=0):
+def find_key(struct, key, levels=1001, count_level=1):
     if count_level > levels:
         return None
     elif key in struct:
@@ -44,7 +44,3 @@ else:
     print('Ключ не найден!')
 
 
-# Какой ключ ищем? h2
-# Глубина поиска (0- по умолчанию): 2
-# Здесь будет мой заголовок
-# TODO, пожалуйста, обратите внимание, на уровне 2 нет ключа h2, он есть только на уровне 3

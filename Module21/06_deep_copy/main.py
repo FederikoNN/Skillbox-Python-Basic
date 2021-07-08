@@ -13,21 +13,27 @@ site = {
 
 import json
 
-# TODO,
-#  В наших функциях не должно быть обращений по ключам. Т.к. таких ключей в другом словаре, может не быть.
-#  Или, у них может быть другой порядок. Стоит написать уникальную функцию.
-#  Предлагаю сначала реализовать функцию для замены данных по при помощи рекурсии.
-#  Есть несколько вариантов решения.
-#  1. передавать в функцию "структуру сайта", "тег" значение, которого необходимо поменять, "новое значение тега".
-#  в таком случае, рекурсивно необходимо идти по словарю,
-#  искать нужный ключ и, если нашли, производить замену его значения.
-#  2. Передать в функцию "структуру сайта" и новое значение, на которое необходимо заменить слово "телефон".
-#  и менять, при помощи replace, если текущих элемент, переданный в функцию - не словарь, а текст.
+
+def change_sites(struct, tag, string):
+    if tag in struct:
+        struct[tag] = string
+    for sub_struct in struct.values():
+        if isinstance(sub_struct, dict):
+            result = change_sites(sub_struct, tag, string)
+            if result:
+                break
+    else:
+        result = None
+
+    return result
+
 
 def print_sites(struct, data_list):
     for data in data_list:
-        struct['html']['head']['title'] = 'Куплю/продам {} недорого'.format(data)
-        struct['html']['body']['h2'] = 'У нас самая низкая цена на {}'.format(data)
+        tag_data = 'Куплю/продам {} недорого'.format(data)
+        change_sites(struct, 'title', tag_data)
+        tag_data = 'У нас самая низкая цена на {}'.format(data)
+        change_sites(struct, 'h2', tag_data)
         print('Сайт для {}:'.format(data))
         print('site =', json.dumps(struct, ensure_ascii=False, indent=4))
 
@@ -35,6 +41,8 @@ def print_sites(struct, data_list):
 sites_num = int(input('Сколько сайтов: '))
 product = []
 for _ in range(sites_num):
-    product.append(input('Введите название продукта для нового сайта: '))
+    site_name = (input('Введите название продукта для нового сайта: '))
+    product.append(site_name)
     print_sites(site, product)
+
 product.clear()
