@@ -7,3 +7,5 @@ def print_number(num):
 
 number = int(input('Введите число: '))
 print_number(number)
+
+# зачёт!

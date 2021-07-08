@@ -11,3 +11,5 @@ def sum_advance(*args):
 
 example = sum_advance([[1, 2, [3]], [1], 3], 1, 2, 3, 4, 5)
 print('Ответ:', example)
+
+# зачёт!

@@ -12,3 +12,5 @@ def zip_alter(array_1, array_2):
 print(zip_alter(data_1, data_2))
 for i_tuple in zip_alter(data_1, data_2):
     print(i_tuple)
+
+# зачёт!

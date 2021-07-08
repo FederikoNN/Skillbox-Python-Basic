@@ -7,3 +7,5 @@ def fibonachi(num):
 
 pos_number = int(input('Введите позицию числа в ряде Фибоначчи: '))
 print('Число:', fibonachi(pos_number))
+
+# зачёт!
