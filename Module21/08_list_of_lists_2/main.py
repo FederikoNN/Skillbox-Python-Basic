@@ -23,3 +23,5 @@ def list_extern(list_in):
 
 
 print('Ответ:', list_extern(nice_list))
+
+# зачёт!

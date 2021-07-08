@@ -27,7 +27,9 @@ def change_sites(struct, tag, string):
 
     return result
 
-
+# TODO, Интересная идея. Молодец!
+#  Пожалуйста, обратите внимание, функции для замены данных и для вывода данных обе должны включать
+#  быть реализованы при помощи рекурсии. И не должны вызывать друг друга =)
 def print_sites(struct, data_list):
     for data in data_list:
         tag_data = 'Куплю/продам {} недорого'.format(data)
