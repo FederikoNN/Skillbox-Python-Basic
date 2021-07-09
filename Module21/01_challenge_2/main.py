@@ -9,3 +9,4 @@ number = int(input('Введите число: '))
 print_number(number)
 
 # зачёт!
+# зачёт!
