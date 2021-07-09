@@ -1,18 +1,11 @@
-def calculating_math_func(data, fact_result=None):  # TODO, вместо None стоит указать {}
-
-    # TODO, блок if ниже получился лишний =)
-    if fact_result is None:
-        fact_result = {0: 1}
-    # TODO, стоит проверить, находится ли наше число в словаре или нет при помощи in =)
-    #  Длину словаря проверять не нужно, в словаре могут быть разные цифры.
-    if data > len(fact_result) - 1:
-        result = fact_result[len(fact_result) - 1]
-        for index in range(len(fact_result), data + 1):
-            result *= index
-            fact_result[int(index)] = result  # TODO, index приводить к числе ну нужно, т.к. и так число =)
-
-    else:
+def calculating_math_func(data, fact_result={0: 1}):
+    if data in fact_result.keys():
         result = fact_result[data]
+    else:
+        result = fact_result[max(fact_result.keys())]
+        for index in range(max(fact_result.keys()) + 1, data + 1):
+            result *= index
+            fact_result[index] = result
 
     result /= data ** 3
     result = result ** 10
