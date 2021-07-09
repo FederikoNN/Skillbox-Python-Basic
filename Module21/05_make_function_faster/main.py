@@ -2,6 +2,8 @@ def calculating_math_func(data, fact_result={0: 1}):
     if data in fact_result.keys():
         result = fact_result[data]
     else:
+        # TODO, если нам нужен факториал числа data, то предлагаю просто в цикле идти от 1 до числа включительно
+        #  Без использования max(fact_result.keys()).
         result = fact_result[max(fact_result.keys())]
         for index in range(max(fact_result.keys()) + 1, data + 1):
             result *= index
