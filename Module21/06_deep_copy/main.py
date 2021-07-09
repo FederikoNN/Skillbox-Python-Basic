@@ -11,7 +11,16 @@ site = {
     }
 }
 
-import json
+
+def print_struct(struct, tab=1):
+    for key, value in struct.items():
+        print('\t' * tab + '\'{}\''.format(key) + ':', end=' ')
+        if isinstance(value, dict):
+            print('{')
+            print_struct(value, tab + 1)
+        else:
+            print('\'{}\''.format(value))
+    print('\t' * (tab - 1) + '}')
 
 
 def change_sites(struct, tag, string):
@@ -27,22 +36,6 @@ def change_sites(struct, tag, string):
 
     return result
 
-# def print_sites(struct, data_list):
-#     for data in data_list:
-#         tag_data = 'Куплю/продам {} недорого'.format(data)
-#         change_sites(struct, 'title', tag_data)
-#         tag_data = 'У нас самая низкая цена на {}'.format(data)
-#         change_sites(struct, 'h2', tag_data)
-#         print('Сайт для {}:'.format(data))
-#         print('site =', json.dumps(struct, ensure_ascii=False, indent=4))
-
-
-# sites_num = int(input('Сколько сайтов: '))
-# product = []
-# for _ in range(sites_num):
-#     site_name = (input('Введите название продукта для нового сайта: '))
-#     product.append(site_name)
-#     print_sites(site, product)
 
 sites_num = int(input('Сколько сайтов: '))
 product = []
@@ -55,10 +48,7 @@ for _ in range(sites_num):
         tag_data = 'У нас самая низкая цена на {}'.format(i_product)
         change_sites(site, 'h2', tag_data)
         print('Сайт для {}:'.format(i_product))
-
-        # TODO, отличный вариант для вывод структуры сайта =)
-        #  В данном задании, нам необходимо написать свою функцию. Она будет очень похожа на функцию со сменой значений
-        #  в структуре словаря.
-        print('site =', json.dumps(site, ensure_ascii=False, indent=4))
+        print('site = {')
+        print_struct(site)
 
 product.clear()
