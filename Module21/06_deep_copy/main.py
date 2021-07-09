@@ -52,3 +52,5 @@ for _ in range(sites_num):
         print_struct(site)
 
 product.clear()
+
+# зачёт!
