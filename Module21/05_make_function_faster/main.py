@@ -35,3 +35,5 @@ def calculating_math_func(data, fact_result={}):
 while True:
     number = int(input('Введите число: '))
     print('Результат:', calculating_math_func(number))
+
+# зачёт!
