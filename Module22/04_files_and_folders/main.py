@@ -16,8 +16,7 @@ def dir_info(path, info=None):
     return info
 
 
-# TODO, пожалуйста, добавьте запрос ввода пользователя.
-#  Т.к. такая директория может присутствовать только на Вашем ПК, на ПК пользователя её может и не быть =)
-path = 'C:/Users/fvk19/PycharmProjects/python_basic/Module21'
+# path = 'C:/Users/fvk19/PycharmProjects/python_basic/Module21'
+path = input('Введите путь к каталогу: ')
 for key, value in dir_info(path).items():
     print(key, value)

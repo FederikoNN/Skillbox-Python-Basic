@@ -1,22 +1,13 @@
 import zipfile
 
 
-def dict_append(dict, string, dict_string={}):
-    # TODO, подсчёт данных в словаре, предлагаю реализовать одним циклом с проверкой,
-    #  является текущий символ строки буквой.
-    #  Если является, то стоит проверить наличие буквы в словаре, если есть,
-    #  то +1 к счётчику, если нет, то создаём новый кюч со значением 1.
-    #  count в решении лишний, т.к. внутри содержит цикл. Получается, что одну и туже букву мы вычисляем несколько раз.
-    #  К примеру, к букве "o" мы применили метод count 262119 раз =)
+def dict_append(dict, string):
     for letter in string:
-        if letter not in dict_string.keys() and letter.isalpha():
-            dict_string[letter] = string.count(letter)
-    for key in dict_string.keys():
-        if key in dict.keys():
-            dict[key] = dict[key] + dict_string[key]
-        else:
-            dict[key] = dict_string[key]
-    dict_string.clear()
+        if letter in dict.keys():
+            dict[letter] += 1
+        elif letter.isalpha():
+            dict[letter] = 1
+
     return dict
 
 
