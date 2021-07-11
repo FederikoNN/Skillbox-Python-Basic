@@ -12,6 +12,9 @@ for word in ''.join(zen_in).split():
     for sym in word:
         if sym.isalpha():
             sym_num += 1
+            # TODO, предлагаю упростить строку ниже. Если мы используем её для поиска буквы с минимальным количеством повторений,
+            #  В таком случае, предлагаю попробовать изначально создать словарь, в котором мы будем производить
+            #  подсчёт количества каждой буквы отдельно.
             if (''.join(''.join(zen_in).split())).lower().count(sym.lower()) < sym_min_num:
                 sym_min_num = (''.join(''.join(zen_in).split())).count(sym.lower())
                 sym_min = sym.lower()

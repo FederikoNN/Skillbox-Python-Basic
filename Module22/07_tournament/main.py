@@ -33,3 +33,5 @@ for line in file_in:
 
 save_result_to_file(players, 'second_tour.txt', K)
 file_data_view('second_tour.txt')
+
+# зачёт!
