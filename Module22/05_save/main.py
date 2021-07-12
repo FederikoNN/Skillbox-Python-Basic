@@ -35,3 +35,5 @@ text = input('Введите строку: ')
 path_out = enter_data_control()
 file_save = input('Введите имя файла: ') + '.txt'
 save_to_file(path_out, file_save, text)
+
+# зачёт!
