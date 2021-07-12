@@ -1,38 +1,37 @@
 import os
 
 
-def save(string):
-    # TODO, пожалуйста, добавьте контроль ввода при помощи цикла while.
-    #  Если директории пользователя не существует, просим ввести последовательность папок повторно.
-    #  Стоит создать отдельную функцию для запроса папок у пользователя и контроля ввода =)
-    folders = input('Куда хотите сохранить документ? Введите последовательность папок (через пробел): ').split()
-    file_save = input('Введите имя файла: ') + '.txt'
-    path_to_folder = os.path.sep
-    for i_folders in folders:
-        path_to_folder = os.path.join(path_to_folder, i_folders)
-        if not os.path.exists(path_to_folder):
-            print('Каталога', i_folders, 'не существует!')
-    path_to_file = os.path.join(path_to_folder, file_save)
+def enter_data_control():
+    while True:
+        folders = input('Куда хотите сохранить документ? Введите последовательность папок (через пробел): ').split()
+        path_to_folder = os.path.sep
+        for i_folders in folders:
+            path_to_folder = os.path.join(path_to_folder, i_folders)
+        if os.path.exists(path_to_folder):
+            return path_to_folder
+        else:
+            print('Ошибка ввода пути к каталогу!\nПопробуйте ещё раз.')
+
+
+def save_to_file(path, file, string):
+    msg = 'сохранён'
+    path_to_file = os.path.join(path, file)
     if os.path.exists(path_to_file):
         choice = input('Вы действительно хотите перезаписать файл? ')
+        msg = 'перезаписан'
         if choice.lower() != 'да':
             print('Не удалось завершить операцию!')
             return
-
-    # TODO, предлагаю написать дополнительную функцию для записи данных в файл
-    #  Таким образом, получится разбить наш код на части.
-
-    file_in = open(path_to_file, 'w')
+    file_in = open(path_to_file, 'w+')
     file_in.write(string)
+    print(f'Файл успешно {msg}!\n')
+    print('Содержимое файла:')
+    file_in.seek(0)
+    print(file_in.read())
     file_in.close()
-    if os.path.getsize(path_to_file) > 0:
-        print('Файл успешно сохранён!')
-        print('Содержимое файла:')
-        file_out = open(path_to_file, 'r')
-        print(file_out.read())
-        file_out.close()
 
-    return
 
 text = input('Введите строку: ')
-save(text)
+path_out = enter_data_control()
+file_save = input('Введите имя файла: ') + '.txt'
+save_to_file(path_out, file_save, text)
