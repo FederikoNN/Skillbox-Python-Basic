@@ -21,3 +21,5 @@ print('\n\nСодержимое файла cipher_text.txt:')
 print(file_out.read())
 file_in.close()
 file_out.close()
+
+# зачёт!

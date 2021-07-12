@@ -21,3 +21,5 @@ for line in file_in.readlines():
 result_list_tpl = sorted(dict_result.items(), key=lambda x: (-x[1], x[0]))
 for (key, value) in result_list_tpl:
     print('Буква "{}"; количество вхождений:\t{}'.format(key, value))
+
+# зачёт!

@@ -20,3 +20,5 @@ def dir_info(path, info=None):
 path = input('Введите путь к каталогу: ')
 for key, value in dir_info(path).items():
     print(key, value)
+
+# зачёт!
