@@ -30,3 +30,5 @@ file_out.close()
 # print('Содержимое файла {}:'.format('answer.txt'))
 # print(file_out.read())
 # file_out.close()
+
+# зачёт!
