@@ -16,3 +16,5 @@ with open('people.txt', 'r') as file_in:
                 file_out.write(msg + '\n')
         sym_num += length
 print('Общая сумма символов:', sym_num)
+
+# зачёт!

@@ -20,6 +20,10 @@ def f2(x, y):
 try:
     with open('coordinates.txt', 'r') as file:
         for line in file:
+            # TODO, пожалуйста, обратите внимание, в основном цикле программы стоит ловить ошибки,
+            #  которые получаются при выполнении функций "f" и "f2".
+            #  При этом, если функция "f" вернула ошибку, цикл не должен прерваться и необходимо запустить функцию "f2".
+
             nums_list = line.split()
             res1 = f(int(nums_list[0]), int(nums_list[1]))
             res2 = f2(int(nums_list[0]), int(nums_list[1]))

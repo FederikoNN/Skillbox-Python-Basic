@@ -39,3 +39,5 @@ while True:
         print(msg)
     except IOError:
         print('то-то пошло не так')
+
+# зачёт!
