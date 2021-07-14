@@ -29,12 +29,8 @@ with open('calc.txt', 'r') as file:
         try:
             line_list = line.split()
             if len(line_list) != 3:
-                raise ValueError(f'Обнаружена ошибка в строке {line}')
+                raise ValueError(f'Обнаружена ошибка')
             result += calc_text(line_list)
-        except ValueError as msg:
-            print(msg)
-        except SyntaxError as msg:
-            print(f'{msg} в строке: {line}')
-        except TypeError as msg:
+        except (SyntaxError, TypeError, ValueError) as msg:
             print(f'{msg} в строке: {line}')
 print('Сумма результатов:', round(result, 2))
