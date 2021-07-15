@@ -25,3 +25,5 @@ with open('registrations.txt', 'r', encoding='utf-8') as file_in:
                 except (NameError, SyntaxError, ValueError) as msg:
                     string_out += f'\t({msg})'
                     file_bad_data.write(f'{string_out}\n')
+
+# зачёт!
