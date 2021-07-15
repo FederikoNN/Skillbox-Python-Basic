@@ -66,6 +66,9 @@ with open('calc.txt', 'r') as file:
             print(f'Обнаружена ошибка в строке: {line} Хотите исправить?', end=' ')
             correction(line)
         # list_tmp.append(line + '\n')
+
+# TODO, предлагаю попробовать уйти от хранения данных для записи в файле в списке и српзу производить запись в файл по ходу вычисления.
+#  Таким образом, код отработает немного быстрее, т.к. не будет хранить в памяти список.
 with open('calc.txt', 'w') as file:
     print(''.join(list_tmp[:length]))
     file.write(''.join(list_tmp[:length]))

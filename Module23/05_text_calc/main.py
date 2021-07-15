@@ -39,3 +39,5 @@ with open('calc.txt', 'r') as file:
         except (SyntaxError, TypeError, ValueError) as msg:
             print(f'{msg} в строке: {line}')
 print('Сумма результатов:', round(result, 2))
+
+# зачёт!
