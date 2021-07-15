@@ -1,29 +1,31 @@
+def check_string(string):
+    operation = '+ - * / // %'
+    string_list = string.split()
+    if not string_list[0].isdigit() or not string_list[2].isdigit():
+        raise TypeError('Ошибка в типе данных. Операнд(ы)- не целое число')
+    if string_list[1] not in operation:
+        raise SyntaxError('Ошибка в знаке операции')
+
+
 def calc_text(string):
     list_in = string.split()
-    if len(list_in) != 3:
-        raise ValueError('Ошибка в количестве аргументов.')
-    x = list_in[0]
-    y = list_in[2]
+    x = int(list_in[0])
+    y = int(list_in[2])
     oper = list_in[1]
-    if x.isdigit() and y.isdigit():
-        x = int(x)
-        y = int(y)
-        if oper == '+':
-            return x + y
-        elif oper == '-':
-            return x - y
-        elif oper == '*':
-            return x * y
-        elif oper == '/':
-            return x / y
-        elif oper == '//':
-            return x // y
-        elif oper == '%':
-            return x % y
-        else:
-            raise SyntaxError('Ошибка в знаке операции.')
+    if oper == '+':
+        return x + y
+    elif oper == '-':
+        return x - y
+    elif oper == '*':
+        return x * y
+    elif oper == '/':
+        return x / y
+    elif oper == '//':
+        return x // y
+    elif oper == '%':
+        return x % y
     else:
-        raise TypeError('Ошибка в типе данных. Операнд(ы)- не целое число.')
+        raise SyntaxError('Ошибка в знаке операции.')
 
 
 def correction(string):
@@ -43,7 +45,7 @@ def correction(string):
 
 result = 0
 list_tmp = []
-with open('calc.txt', 'r+') as file:
+with open('calc.txt', 'r') as file:
     print(f'Содержимое файла calc.txt:\n{file.read()}')
     file.seek(0)
     line_list = file.readlines()
@@ -53,13 +55,19 @@ with open('calc.txt', 'r+') as file:
         if not line.strip(' \n'):
             continue
         try:
+            if len(line.split()) != 3:
+                raise ValueError(f'Обнаружена ошибка')
+            check_string(line)
             result += calc_text(line)
             list_tmp.append(line + '\n')
+            print(list_tmp, length)
         except (SyntaxError, TypeError, ValueError) as msg:
             print(msg)
             print(f'Обнаружена ошибка в строке: {line} Хотите исправить?', end=' ')
             correction(line)
-    file.seek(0)
+        # list_tmp.append(line + '\n')
+with open('calc.txt', 'w') as file:
+    print(''.join(list_tmp[:length]))
     file.write(''.join(list_tmp[:length]))
 
 print('Сумма результатов:', round(result, 2))

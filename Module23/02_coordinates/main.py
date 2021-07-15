@@ -20,20 +20,21 @@ def f2(x, y):
 try:
     with open('coordinates.txt', 'r') as file:
         for line in file:
-            # TODO, пожалуйста, обратите внимание, в основном цикле программы стоит ловить ошибки,
-            #  которые получаются при выполнении функций "f" и "f2".
-            #  При этом, если функция "f" вернула ошибку, цикл не должен прерваться и необходимо запустить функцию "f2".
-
             nums_list = line.split()
-            res1 = f(int(nums_list[0]), int(nums_list[1]))
-            res2 = f2(int(nums_list[0]), int(nums_list[1]))
+            try:
+                res1 = f(int(nums_list[0]), int(nums_list[1]))
+            except ZeroDivisionError as msg:
+                print(msg)
+            try:
+                res2 = f2(int(nums_list[0]), int(nums_list[1]))
+            except ZeroDivisionError as msg:
+                print(msg)
             number = random.randint(0, 100)
-            with open('result.txt', 'w') as file_2:
+            with open('result.txt', 'a') as file_2:
                 my_list = sorted([res1, res2, number])
-                file_2.write(' '.join(str(elem) for elem in my_list))
+                file_2.write(' | '.join(str(elem) for elem in my_list) + '\n')
+
 except FileNotFoundError:
     print('Файл, который пытаетесь открыть для чтения, не существует')
-except ZeroDivisionError as msg:
-    print(msg)
 except BaseException:
     print('Что-то пошло не так...')
