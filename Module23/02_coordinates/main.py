@@ -25,13 +25,14 @@ try:
                 res1 = f(int(nums_list[0]), int(nums_list[1]))
             except ZeroDivisionError as msg:
                 print(msg)
-                # TODO, если функции отработали с ошибкой, предлагаю создавать переменные res1 и res2 в блоках except.
-                #  Таким образом, мы сможем избежать ошибок в коде ниже.
-
+                # res1 = f(int(nums_list[0]), int(nums_list[1]))
+                res1 = 0
             try:
                 res2 = f2(int(nums_list[0]), int(nums_list[1]))
             except ZeroDivisionError as msg:
                 print(msg)
+                # res2 = f2(int(nums_list[0]), int(nums_list[1]))
+                res2 = 0
             number = random.randint(0, 100)
             with open('result.txt', 'a') as file_2:
                 my_list = sorted([res1, res2, number])

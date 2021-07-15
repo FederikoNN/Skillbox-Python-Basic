@@ -22,19 +22,7 @@ with open('registrations.txt', 'r', encoding='utf-8') as file_in:
                 try:
                     string_out = except_for_string(line)
 
-
-                # TODO, Стоит ловить ошибки группой =)
-                # TODO, ошибки группой можно ловить в одном блоке except следующим образом
-                #  except (Ошибка1, Ошибка2) as err,
-                #  Это позволит уйти от большого количества блоков except.
-                #  при этом, err будет содержать в себе "Текст ошибки" с которым ошибка была вызвана.
-                #  Что удобно, для записи в файл =)
-
-                except NameError as msg:
-                    string_out += f'\t({msg})'
-                except SyntaxError as msg:
-                    string_out += f'\t({msg})'
-                except ValueError as msg:
+                except (NameError, SyntaxError, ValueError) as msg:
                     string_out += f'\t({msg})'
                 if string_out == line:
                     file_good_data.write(line)
