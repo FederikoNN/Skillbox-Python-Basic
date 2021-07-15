@@ -24,6 +24,8 @@ with open('registrations.txt', 'r', encoding='utf-8') as file_in:
 
                 except (NameError, SyntaxError, ValueError) as msg:
                     string_out += f'\t({msg})'
+                # TODO, предлагаю уйти от условного оператора и записывать данные в файл с корретными данными внутри блока try.
+                #  а с некорректными, внутри блока except
                 if string_out == line:
                     file_good_data.write(line)
                 else:

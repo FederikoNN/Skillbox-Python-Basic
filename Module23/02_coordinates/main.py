@@ -42,3 +42,5 @@ except FileNotFoundError:
     print('Файл, который пытаетесь открыть для чтения, не существует')
 except BaseException:
     print('Что-то пошло не так...')
+
+# зачёт!
