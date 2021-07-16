@@ -45,8 +45,6 @@ result = 0
 with open('calc.txt', 'r') as file:
     print(f'Содержимое файла calc.txt:\n{file.read()}')
     file.seek(0)
-    # line_list = file.readlines()
-    # length = len(line_list)
     for line in file:
         line = line.strip(' \n')
         if not line.strip(' \n'):
