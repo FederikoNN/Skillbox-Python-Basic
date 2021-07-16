@@ -33,24 +33,21 @@ def correction(string):
         choice = input().lower()
         if choice == 'да':
             string_new = input('Введите исправленную строку: ')
-            line_list.append(string_new)
-            list_tmp.append(string_new + '\n')
-            return
+            # file.write(string_new)
+            return string_new
         elif choice == 'нет':
-            list_tmp.append(string + '\n')
-            return
+            return string
         else:
             print('Сделайте выбор! ', end='')
 
 
 result = 0
-list_tmp = []
 with open('calc.txt', 'r') as file:
     print(f'Содержимое файла calc.txt:\n{file.read()}')
     file.seek(0)
-    line_list = file.readlines()
-    length = len(line_list)
-    for line in line_list:
+    # line_list = file.readlines()
+    # length = len(line_list)
+    for line in file:
         line = line.strip(' \n')
         if not line.strip(' \n'):
             continue
@@ -58,19 +55,14 @@ with open('calc.txt', 'r') as file:
             if len(line.split()) != 3:
                 raise ValueError(f'Обнаружена ошибка')
             check_string(line)
-            result += calc_text(line)
-            list_tmp.append(line + '\n')
-            print(list_tmp, length)
         except (SyntaxError, TypeError, ValueError) as msg:
             print(msg)
             print(f'Обнаружена ошибка в строке: {line} Хотите исправить?', end=' ')
-            correction(line)
-        # list_tmp.append(line + '\n')
-
-# TODO, предлагаю попробовать уйти от хранения данных для записи в файле в списке и српзу производить запись в файл по ходу вычисления.
-#  Таким образом, код отработает немного быстрее, т.к. не будет хранить в памяти список.
-with open('calc.txt', 'w') as file:
-    print(''.join(list_tmp[:length]))
-    file.write(''.join(list_tmp[:length]))
+            line = correction(line)
+        try:
+            result += calc_text(line)
+        except BaseException as msg:
+            # print(msg)
+            print('Очень жаль! Либо Вы не изменили строку, либо новая строка тоже некорректна! Идём дальше...')
 
 print('Сумма результатов:', round(result, 2))
