@@ -18,3 +18,4 @@ with open('people.txt', 'r') as file_in:
 print('Общая сумма символов:', sym_num)
 
 # зачёт!
+# зачёт!
