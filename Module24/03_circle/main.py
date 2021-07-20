@@ -34,3 +34,5 @@ print(f'Площадь окружности: {circle_01.square()}\nПериме�
 circle_01.zoom_circle(2)
 print(circle_01.radius)
 circle_01.intersection_check(circle_02)
+
+# зачёт!

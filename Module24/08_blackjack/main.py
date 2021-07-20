@@ -94,3 +94,5 @@ while True:
         else:
             print('Ошибка выбора!')
     input()
+
+# зачёт!

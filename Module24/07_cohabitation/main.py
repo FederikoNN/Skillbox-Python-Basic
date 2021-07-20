@@ -87,3 +87,5 @@ for day in range(1, 366):
     if not human_01.is_alive() or not human_02.is_alive():
         break
     home.life_flow()
+
+# зачёт!

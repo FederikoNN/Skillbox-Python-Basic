@@ -63,3 +63,5 @@ gardener = Gardener('Василий', garden)
 for _ in range(11):
     gardener.take_care()
     gardener.harvest()
+
+# зачёт!

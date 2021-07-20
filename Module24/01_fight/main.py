@@ -40,3 +40,5 @@ class Fight:
 
 fight = Fight()
 fight.fray()
+
+# зачёт!

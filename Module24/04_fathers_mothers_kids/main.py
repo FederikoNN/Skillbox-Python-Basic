@@ -84,3 +84,5 @@ parent.get_parent_info()
 for _ in range(2):
     parent.feed_all()
     parent.calm_all()
+
+# зачёт!
