@@ -1,11 +1,10 @@
 class Water:
-    name = 'Вода'
 
-    # TODO, предлагаю добавить метод __str__ и возвращать в нём имя класса.
-    #  В таком случае, если передать объект нашего класса в функцию print, получим вывод имени класса =)
+    def __init__(self, name='Вода'):
+        self.name = name
 
-    # TODO, предлагаю добавить метод __init__, в котором будет находится название элемента.
-    #  В __str__ стоит возвращать именно название класса =)
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -19,7 +18,11 @@ class Water:
 
 
 class Air:
-    name = 'Воздух'
+    def __init__(self, name='Воздух'):
+        self.name = name
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
     def __add__(self, other):
         if isinstance(other, Water):
@@ -33,7 +36,11 @@ class Air:
 
 
 class Fire:
-    name = 'Огонь'
+    def __init__(self, name='Огонь'):
+        self.name = name
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -47,7 +54,11 @@ class Fire:
 
 
 class Terra:
-    name = 'Земля'
+    def __init__(self, name='Земля'):
+        self.name = name
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -62,42 +73,59 @@ class Terra:
 
 class Storm:
     name = 'Шторм'
-    answer = f'{Water.name} + {Air.name} = {name}'
+    answer = f'{Water().name} + {Air().name} = {name}'
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
 
 class Steam:
-    # name = 'Пар'
-    answer = f'{Water.name} + {Fire.name} = Пар'
+    name = 'Пар'
+    answer = f'{Water().name} + {Fire().name} = {name}'
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
 
 class Dirt:
     name = 'Грязь'
-    answer = f'{Water.name} + {Terra.name} = {name}'
+    answer = f'{Water().name} + {Terra().name} = {name}'
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
 
 class Lightning:
     name = 'Молния'
-    answer = f'{Air.name} + {Fire.name} = {name}'
+    answer = f'{Air().name} + {Fire().name} = {name}'
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
 
 class Dust:
     name = 'Пыль'
-    answer = f'{Terra.name} + {Air.name} = {name}'
+    answer = f'{Terra().name} + {Air().name} = {name}'
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
 
 class Lava:
     name = 'Лава'
-    answer = f'{Terra.name} + {Fire.name} = {name}'
+    answer = f'{Terra().name} + {Fire().name} = {name}'
+
+    def __str__(self):
+        return f'{self.__class__.__name__}'
 
 
-element_01 = Air()
+element_01 = Water()
 element_02 = Terra()
 element_derived = element_01 + element_02
 if element_derived:
     print(element_derived.answer)
 else:
     print(f'{element_01.name} + {element_02.name} = {element_derived}')
-
 
 print(Water(), '+', Air(), '=', Water() + Air())
 print(Water(), '+', Fire(), '=', Water() + Fire())

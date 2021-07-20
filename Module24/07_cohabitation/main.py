@@ -2,9 +2,10 @@ import random
 
 
 class Human:
-    def __init__(self, name, satiety=50):
+    def __init__(self, name, home, satiety=50):
         self.name = name
         self.satiety = satiety
+        self.home = home
 
     def get_name(self):
         return self.name
@@ -13,11 +14,12 @@ class Human:
         print(f'{self.name} покушал')
         if self.satiety >= 0:
             self.satiety += 1
+            self.home.food -= 1
 
     def work(self):
         print(f'{self.name} работает')
-        if self.satiety > 0:
-            self.satiety -= 1
+        self.satiety -= 1
+        self.home.money += 1
 
     def play(self):
         print(f'{self.name} решил поиграть')
@@ -25,8 +27,10 @@ class Human:
             self.satiety -= 1
 
     def food_shopping(self):
-        # TODO, предлагаю добавить проверку. Если в доме нет денег, то еды купить человек не сможет.
-        print(f'{self.name} сходил в магазин за продуктами')
+        if self.home.money > 0:
+            print(f'{self.name} сходил в магазин за продуктами')
+            self.home.money -= 1
+            self.home.food += 1
 
     def is_alive(self):
         if self.satiety < 0:
@@ -34,56 +38,52 @@ class Human:
             return False
         return True
 
+    def one_day_of_life(self):
+        cube_gen = random.randint(1, 6)
+        if self.satiety < 20:
+            self.eat()
+        elif self.home.food < 10:
+            self.food_shopping()
+        elif self.home.money < 50:
+            self.work()
+        elif cube_gen == 1:
+            self.work()
+        else:
+            self.play()
+        self.print_info()
+
     def print_info(self):
         print(f'{self.name} сытость: {self.satiety}')
 
 
 class Home:
-    def __init__(self, residents=[], food=50, money=0):
-        self.residents = residents
+    def __init__(self, resident=None, food=50, money=0):
+        self.residents = []
         self.food = food
         self.money = money
+        self.add_resident(resident)
 
-    def human_ate(self):
-        if self.food > 0:
-            self.food -= 1
+    def add_resident(self, human):
+        if isinstance(human, Human):
+            self.residents.append(human)
 
     def life_flow(self):
-
-        # TODO. предлагаю создать у человека метод "один день жизни"
-        #  и реализовать логику выбора действий в этом методе.
-        #  В цикле, в таком случае, сможем запускать только его =)
-
         for i_resident in self.residents:
-            cube_gen = random.randint(1, 6)
-            if i_resident.satiety < 20:
-                i_resident.eat()
-                self.food -= 1
-            elif self.food < 10:
-                i_resident.food_shopping()
-                self.food += 1
-                self.money -= 1
-            elif self.money < 50:
-                i_resident.work()
-                self.money += 1
-            elif cube_gen == 1:
-                i_resident.work()
-                self.money += 1
-            else:
-                i_resident.play()
-            i_resident.print_info()
+            i_resident.one_day_of_life()
         self.print_info()
 
     def print_info(self):
         print(f'Еда в доме: {self.food}; деньги в доме: {self.money}\n')
 
 
-human_01 = Human('Николай')
-human_02 = Human('Петр')
-home = Home([human_01, human_02])
+home = Home()
+human_01 = Human('Николай', home)
+human_02 = Human('Пётр', home)
+home.add_resident(human_01)
+home.add_resident(human_02)
+
 for day in range(1, 366):
     print(f'День {day}:')
     if not human_01.is_alive() or not human_02.is_alive():
         break
     home.life_flow()
-

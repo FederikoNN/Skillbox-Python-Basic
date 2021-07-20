@@ -8,16 +8,13 @@ class Warrior:
         self.health = health
         self.name = f'Воин {number}'
 
-    def attack_in(self):
-        # TODO, по идее, этот метод должен принимать на вход объект Warrior
-        #  Проверять, является ли он объектом класса Warrior и наносить урон ему, а не себе.
-        #  Давайте немного поправим.
-
-        self.health -= 20
-        if self.health >= 0:
-            print(f'У Воина {self.number} осталось здоровья: {self.health}')
-        else:
-            print(f'{self.name} погиб...')
+    def attack_in(self, unit):
+        if isinstance(unit, Warrior):
+            unit.health -= 20
+            if unit.health >= 0:
+                print(f'У Воина {unit.number} осталось здоровья: {unit.health}')
+            else:
+                print(f'{unit.name} погиб...')
 
     def is_defeated(self):
         if self.health >= 0:
@@ -33,10 +30,10 @@ class Fight:
     def fray(self):
         while True:
             num = random.randint(1, 2)
-            print(f'Атаковал {self.warriors[num // 2].name}')
-            self.warriors[num % 2].attack_in()
-            if self.warriors[num % 2].is_defeated():
-                print(f'{self.warriors[num // 2].name} одержал победу!')
+            print(f'Атаковал {self.warriors[num % 2].name}')
+            self.warriors[num % 2].attack_in(self.warriors[num // 2])
+            if self.warriors[num // 2].is_defeated():
+                print(f'{self.warriors[num % 2].name} одержал победу!')
                 break
             input('Нажмите любую клавишу для продолжения...')
 

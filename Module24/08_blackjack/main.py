@@ -37,44 +37,53 @@ class Deck:
             self.deck.remove(card)
         return players_cards
 
-# TODO, предлагаю реализовать игру полностью на классах,
-#  Стоит перенести эту функцию в методы класса Игрок. И возможно, было бы правильней создать класс Игрок.
-def player_cards_info(cards_list, unit='Игрок'):
-    count = 0
-    ace = 0
-    print(f'У {unit}а на руках:')
-    for card in cards_list:
-        card.card_info()
-        count += card.value
-        if card.value == 11:
-            ace += 1
-    if count > 21 and ace > 0:
-        count -= 10
-        ace -= 1
-    elif count > 21:
-        print('\nПеребор! Вы проиграли!')
-        return False
-    elif count == 21:
-        print(f'\n{unit} выиграл!')
-        return False
-    print('\nКоличество очков: ', count)
-    return count
+
+class Player:
+    def __init__(self, cards_list, name='Игрок'):
+        self.name = name
+        self.cards_list = cards_list
+
+    def player_cards_info(self):
+        count = 0
+        ace = 0
+        print(f'У {self.name}а на руках:')
+        for card in self.cards_list:
+            card.card_info()
+            count += card.value
+            if card.value == 11:
+                ace += 1
+        if count > 21 and ace > 0:
+            count -= 10
+            ace -= 1
+        if count > 21:
+            print('\nПеребор! Вы проиграли!')
+            return False
+        elif count == 21:
+            print(f'\n{self.name} выиграл!')
+            return False
+        print('\nКоличество очков: ', count)
+        return count
+
+    def add_card(self, card):
+        self.cards_list.append(card)
 
 
 while True:
     deck_deal = Deck()
-    player = deck_deal.first_dealing()
-    dealer = deck_deal.first_dealing()
-    count_player = player_cards_info(player)
+    player_deal = deck_deal.first_dealing()
+    dealer_deal = deck_deal.first_dealing()
+    player = Player(player_deal)
+    dealer = Player(dealer_deal, 'Дилер')
+    count_player = player.player_cards_info()
     while True:
         if not count_player:
             break
         choice = input('Добавить карту? (да/нет): ')
         if choice.lower() == 'да':
-            player.append(deck_deal.card_dealing())
-            count_player = player_cards_info(player)
+            player.add_card(deck_deal.card_dealing())
+            count_player = player.player_cards_info()
         elif choice.lower() == 'нет':
-            count_dealer = player_cards_info(dealer, 'Дилер')
+            count_dealer = dealer.player_cards_info()
             if count_player > count_dealer:
                 print('Вы выиграли!')
             elif count_player < count_dealer:

@@ -17,22 +17,20 @@ class Circle:
     def zoom_circle(self, K):
         self.radius = K * self.radius
 
-    def intersection_check(self, x, y, radius):
-        # TODO, в этот метод предлага добавлять обхект класса Круг,
-        #  стоит добавить проверку, что элемент является объектом класса Круг.
-        #  Ведь в противном случае, он может не иметь аргументов "x" и "y"
-        #  Таким образом, у метода будет всего один параметр, вместо трёх =)
-
-        centers_distance = math.sqrt((self.x - x) ** 2 + (self.y - y) ** 2)
-        if centers_distance < (radius + self.radius) and centers_distance < abs(radius - self.radius):
-            print('Окружности не пересекаются')
-        else:
-            print('Окружности пересекаются')
+    def intersection_check(self, circle_ext):
+        if isinstance(circle_ext, Circle):
+            centers_distance = math.sqrt((self.x - circle_ext.x) ** 2 + (self.y - circle_ext.y) ** 2)
+            if centers_distance < (circle_ext.radius + self.radius) and centers_distance < abs(
+                    circle_ext.radius - self.radius):
+                print('Окружности не пересекаются')
+            else:
+                print('Окружности пересекаются')
 
 
-circle = Circle()
-print(f'Окружность:\nцентр в точке {circle.center}\nрадиус: {circle.radius}')
-print(f'Площадь окружности: {circle.square()}\nПериметр окружности: {circle.perimeter()}')
-# circle.zoom_circle(3)
-# print(circle.radius)
-# circle.intersection_check(0, 2, 1)
+circle_01 = Circle()
+circle_02 = Circle(0, 2, 1)
+print(f'Окружность:\nцентр в точке {circle_01.center}\nрадиус: {circle_01.radius}')
+print(f'Площадь окружности: {circle_01.square()}\nПериметр окружности: {circle_01.perimeter()}')
+circle_01.zoom_circle(2)
+print(circle_01.radius)
+circle_01.intersection_check(circle_02)

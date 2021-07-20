@@ -37,9 +37,10 @@ class GardenPotato:
             return True
 
     def plant_new(self):
+        count = len(self.potatoes)
+        self.potatoes.clear()
+        self.potatoes = [Potato(index) for index in range(1, count + 1)]
         print('Посадили картошку на грядке\n')
-        for i_potato in self.potatoes:
-            i_potato.state = 0
 
 
 class Gardener:
@@ -54,10 +55,6 @@ class Gardener:
     def harvest(self):
         if self.garden_bed.are_all_ripe():
             print(f'Садовник {self.name} собрал весь урожай!')
-
-            # TODO, это действие по идее, должно убирать старые объекты классов Картошка и добавлять новые.
-            #  В таком случае, стоит создать метод у класса GardenPotato, поторый бы добавлял объекты класса
-            #  Potato в список potatoes. =)
             self.garden_bed.plant_new()
 
 

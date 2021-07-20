@@ -1,13 +1,15 @@
 class Parent:
     def __init__(self, name, age=16, child_list=[]):
-        self.name = name
-        self.child_list = child_list
-        self.child = Child(name)
-        # TODO, стоит добавить отдельным метод у класса Родитель, для добавления ребёнка в список аргумента класса.
-        #  Т.к. нам необходимо проверить условие "Возраст (должен быть меньше возраста родителя хотя бы на 16 лет)"
-        #  Аргумент может принимать на вход как список, так и одного ребёнка.
-        #  Если возвраст ребёнка не подходит, в список к родителю не добавляем.
         self.age = age
+        self.name = name
+        self.child_list = []
+        self.child = Child(name)
+        self.add_child(child_list)
+
+    def add_child(self, child_new):
+        for child in child_new:
+            if isinstance(child, Child) and self.age - child.age > 16:
+                self.child_list.append(child)
 
     def get_parent_info(self):
         parent_info = {'Имя': self.name, 'Возраст': self.age,
@@ -74,14 +76,10 @@ class Child:
 
 
 child_01 = Child('Николай', 5)
-child_02 = Child('Петр', 7)
+child_02 = Child('Петр', 17)
 parent = Parent('Владимир', 25, [child_01, child_02])
+# parent.add_child([child_01, child_02])
 parent.get_parent_info()
-# for child in parent.child_list:
-#     if parent.age - child.age < 16:
-#         print(f'{child.name} слишком взрослый,чтобы быть ребенком {parent.name}')
-#         print('Введите корректные данные!')
-
 
 for _ in range(2):
     parent.feed_all()
