@@ -1,6 +1,12 @@
 class Water:
     name = 'Вода'
 
+    # TODO, предлагаю добавить метод __str__ и возвращать в нём имя класса.
+    #  В таком случае, если передать объект нашего класса в функцию print, получим вывод имени класса =)
+
+    # TODO, предлагаю добавить метод __init__, в котором будет находится название элемента.
+    #  В __str__ стоит возвращать именно название класса =)
+
     def __add__(self, other):
         if isinstance(other, Air):
             return Storm()
@@ -91,3 +97,8 @@ if element_derived:
     print(element_derived.answer)
 else:
     print(f'{element_01.name} + {element_02.name} = {element_derived}')
+
+
+print(Water(), '+', Air(), '=', Water() + Air())
+print(Water(), '+', Fire(), '=', Water() + Fire())
+print(Air(), '+', Fire(), '=', Air() + Fire())

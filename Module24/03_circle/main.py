@@ -18,6 +18,11 @@ class Circle:
         self.radius = K * self.radius
 
     def intersection_check(self, x, y, radius):
+        # TODO, в этот метод предлага добавлять обхект класса Круг,
+        #  стоит добавить проверку, что элемент является объектом класса Круг.
+        #  Ведь в противном случае, он может не иметь аргументов "x" и "y"
+        #  Таким образом, у метода будет всего один параметр, вместо трёх =)
+
         centers_distance = math.sqrt((self.x - x) ** 2 + (self.y - y) ** 2)
         if centers_distance < (radius + self.radius) and centers_distance < abs(radius - self.radius):
             print('Окружности не пересекаются')

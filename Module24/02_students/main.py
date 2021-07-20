@@ -19,3 +19,5 @@ for _ in range(10):
 students_list.sort(key=lambda student: sum(student.achievements))
 for student in students_list:
     print(f'{student.name} \tгруппа: {student.group_num} \tсредний балл: {sum(student.achievements) / 5}')
+
+# зачёт!

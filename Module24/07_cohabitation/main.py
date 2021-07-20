@@ -25,6 +25,7 @@ class Human:
             self.satiety -= 1
 
     def food_shopping(self):
+        # TODO, предлагаю добавить проверку. Если в доме нет денег, то еды купить человек не сможет.
         print(f'{self.name} сходил в магазин за продуктами')
 
     def is_alive(self):
@@ -48,6 +49,11 @@ class Home:
             self.food -= 1
 
     def life_flow(self):
+
+        # TODO. предлагаю создать у человека метод "один день жизни"
+        #  и реализовать логику выбора действий в этом методе.
+        #  В цикле, в таком случае, сможем запускать только его =)
+
         for i_resident in self.residents:
             cube_gen = random.randint(1, 6)
             if i_resident.satiety < 20:

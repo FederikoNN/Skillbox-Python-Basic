@@ -9,6 +9,10 @@ class Warrior:
         self.name = f'Воин {number}'
 
     def attack_in(self):
+        # TODO, по идее, этот метод должен принимать на вход объект Warrior
+        #  Проверять, является ли он объектом класса Warrior и наносить урон ему, а не себе.
+        #  Давайте немного поправим.
+
         self.health -= 20
         if self.health >= 0:
             print(f'У Воина {self.number} осталось здоровья: {self.health}')

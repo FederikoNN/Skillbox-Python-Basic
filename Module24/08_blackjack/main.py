@@ -37,7 +37,8 @@ class Deck:
             self.deck.remove(card)
         return players_cards
 
-
+# TODO, предлагаю реализовать игру полностью на классах,
+#  Стоит перенести эту функцию в методы класса Игрок. И возможно, было бы правильней создать класс Игрок.
 def player_cards_info(cards_list, unit='Игрок'):
     count = 0
     ace = 0
