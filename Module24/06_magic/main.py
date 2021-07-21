@@ -4,9 +4,7 @@ class Water:
         self.name = name
 
     def __str__(self):
-        # TODO, не стоит злоупотреблять использованим магических методов =)
-        #  В данном методе можно просто возвращать значение аргумента self.name, иначе метод init становится лишним.
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -24,7 +22,7 @@ class Air:
         self.name = name
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
     def __add__(self, other):
         if isinstance(other, Water):
@@ -42,7 +40,7 @@ class Fire:
         self.name = name
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -60,7 +58,7 @@ class Terra:
         self.name = name
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
     def __add__(self, other):
         if isinstance(other, Air):
@@ -75,63 +73,45 @@ class Terra:
 
 class Storm:
     name = 'Шторм'
-    # TODO, таким образом, мы лишний раз создаём объекты класса.
-    #  Если Шторм может получиться только из воды и воздуха, то стоит просто передать в переменную answer текст.
-    #  Без создания объектов класса и обращения к их именам.
-    #  Но, если answer не используется, то возможно и создавать не нужно =)
-    answer = f'{Water().name} + {Air().name} = {name}'
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
 
 class Steam:
     name = 'Пар'
-    answer = f'{Water().name} + {Fire().name} = {name}'
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
 
 class Dirt:
     name = 'Грязь'
-    answer = f'{Water().name} + {Terra().name} = {name}'
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
 
 class Lightning:
     name = 'Молния'
-    answer = f'{Air().name} + {Fire().name} = {name}'
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
 
 class Dust:
     name = 'Пыль'
-    answer = f'{Terra().name} + {Air().name} = {name}'
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
 
 class Lava:
     name = 'Лава'
-    answer = f'{Terra().name} + {Fire().name} = {name}'
 
     def __str__(self):
-        return f'{self.__class__.__name__}'
+        return f'{self.name}'
 
-
-element_01 = Water()
-element_02 = Terra()
-element_derived = element_01 + element_02
-if element_derived:
-    print(element_derived.answer)
-else:
-    print(f'{element_01.name} + {element_02.name} = {element_derived}')
 
 print(Water(), '+', Air(), '=', Water() + Air())
 print(Water(), '+', Fire(), '=', Water() + Fire())
