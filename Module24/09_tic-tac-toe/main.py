@@ -2,7 +2,6 @@ import random
 
 
 class TicTacToe:
-
     win_combinations = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
 
     def __init__(self, table=None):
@@ -74,3 +73,4 @@ while True:
         step += 1
     input('\nНажмите любую клавишу!')
 
+# зачёт!

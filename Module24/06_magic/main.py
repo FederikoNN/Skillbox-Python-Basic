@@ -116,3 +116,5 @@ class Lava:
 print(Water(), '+', Air(), '=', Water() + Air())
 print(Water(), '+', Fire(), '=', Water() + Fire())
 print(Air(), '+', Fire(), '=', Air() + Fire())
+
+# зачёт!
