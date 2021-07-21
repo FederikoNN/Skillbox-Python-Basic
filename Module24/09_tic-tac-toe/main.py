@@ -65,6 +65,9 @@ while True:
             print('Ошибка ввода!')
         if game.player_step(choice):
             break
+        if not game.list_num:
+            print('Ничья!')
+            break
         if game.comp_step():
             break
         game.print_table()
