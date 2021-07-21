@@ -42,3 +42,4 @@ fight = Fight()
 fight.fray()
 
 # зачёт!
+# зачёт!
