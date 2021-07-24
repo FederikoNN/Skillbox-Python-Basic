@@ -38,6 +38,9 @@ class Agent(Employee):
 class Manager(Employee):
     def __init__(self, name, age, salary=13000):
         super().__init__(name, age, salary)
+        # TODO, стоит так же указать создание аргумента __salary.
+        #  Чтобы эта информация была в методе init. Возможно, параметр salary, не должен быть обязательный при создании объекта класса.
+        #  И стоит всегда указывать его значение в методе init.
 
 
 class Worker(Employee):

@@ -1,6 +1,8 @@
 import random
 
 
+# TODO, пожалуйста, обратите внимание, необходимо создать 5 классов исключений и хранить в списке __exceptions именно их.
+
 class Karma:
     __exceptions = ['KillError', 'DrunkError', 'CarCrashError', 'GluttonyError', 'DepressionError']
     __karma_purpose = 500
@@ -16,6 +18,7 @@ class Karma:
 
 
 class BuddhistLife(Karma):
+    # TODO, если метод не переопределяется, то создавать его не нужно! =)
     def __init__(self, karma=0):
         super().__init__(karma)
 
@@ -24,7 +27,7 @@ class BuddhistLife(Karma):
             self.karma = 0
         if random.randint(1, 10) == 1:
             # self.karma -= 50
-            raise Exception
+            raise Exception  # TODO, вызывать необходимо исключение из списка __exceptions.
         self.karma += random.randint(1, 7)
         return self.karma
 

@@ -1,6 +1,6 @@
 class Stack:
-    def __init__(self, object_list=[]):
-        self.object_list = object_list
+    def __init__(self, object_list=[]):  # TODO, параметр object_list в этом месте получился лишний.
+        self.object_list = object_list  # TODO, стоит сделать пустым списком, вместо object_list
 
     def __str__(self):
         return f'{"; ".join(self.object_list)}'
@@ -16,9 +16,12 @@ class Stack:
 
 
 class TaskManager:
-    def __init__(self, tasks={}, stack=Stack()):
-        self.tasks = tasks
-        self.stack = stack
+    def __init__(self, tasks={}, stack=Stack()):  # TODO, параметры tasks и stack в этом месте получились лишними.
+        self.tasks = tasks  # TODO, стоит сделать пустым словарём, вместо tasks
+        self.stack = stack  # TODO, лишний параметр для класса =)
+
+        # TODO, предлагаю немного поправить решение и реализовать ключами нашего словаря self.tasks - приоритеты,
+        #  а значениями наши списки Stack(). =)
 
     def __str__(self):
         return ''.join([f'\n{key} {"; ".join(self.tasks[key])}\n' for key in sorted(self.tasks.keys())])

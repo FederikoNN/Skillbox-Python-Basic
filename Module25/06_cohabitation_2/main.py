@@ -2,6 +2,9 @@ import random
 
 
 class FamilyMember:
+    # TODO, стоит добавить человеку аргумент "дом" изначально равный None
+    #  И метод, в котором присвоим человеку дом. =)
+
     def __init__(self, name, home, satiety=0, happiness=0):
         self.name = name
         self.satiety = satiety
@@ -19,6 +22,7 @@ class FamilyMember:
             self.home.food -= feed
             self.home.eaten += feed
 
+    # TODO, т..к у жены этих методов нет, то создавать пустые методы не нужно =)
     def work(self):
         pass
 
@@ -42,6 +46,7 @@ class FamilyMember:
 
 
 class Husband(FamilyMember):
+    # TODO, если метод не переопределяется, то создавать его не нужно! =)
     def __init__(self, name, home, satiety=30, happiness=100):
         super().__init__(name, home, satiety, happiness)
 
@@ -132,6 +137,7 @@ class Wife(FamilyMember):
 
 
 class Cat(FamilyMember):
+    # TODO, если метод не переопределяется, то создавать его не нужно!
     def __init__(self, name, home, satiety=30, happiness=0):
         super().__init__(name, home, satiety, happiness)
 
@@ -206,6 +212,9 @@ for day in range(1, 366):
         break
     if not husband.is_happiness() or not wife.is_happiness():
         break
+
+    # TODO, предлагаю перенести эту проверку в классы Мужа и Жены, или в FamilyMember.
+    #  Но, в таком случае, класс FamilyMember не должен быть родительским у кота =)
     if home_sweet.dirt > 90:
         husband.happiness -= 10
         wife.happiness -= 10
