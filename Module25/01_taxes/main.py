@@ -1,51 +1,38 @@
 class Property:
-    def __init__(self, worth=0):
+    def __init__(self, tax_percent, worth=0):
         self.worth = worth
-        # TODO, предлагаю сократить количество вызовов методов в методе init
-        #  и создавать в нём только аргументы, которые класс использует в работе.
-        self.set_worth(worth)
+        self.tax_percent = tax_percent
 
     def set_worth(self, worth):
-        pass
+        self.worth = worth
 
     def tax_calc(self):
-        return self.worth / 1000
+        return self.worth * self.tax_percent / 100
 
 
 class Apartment(Property):
-    # TODO, если метод не переопределяется, то создавать его не нужно!
-    #  Но, в разрезе данного задания, предлагаю добавить в него аргумент "процент стоимости"
-    #  и использовать его в методе с расчётом налога, вместо чисел 1000, 500 и 200.
-    #  В таком случае, если число в дальнейшем нужно будет поменять, мы всегда легко найдём его
-    #  в методе init.
 
-    def __init__(self, worth=0):
-        super().__init__(worth)
+    def __init__(self, tax_percent=0.1, worth=0):
+        super().__init__(tax_percent, worth)
 
     def __str__(self):
         return 'Квартира'
 
 
 class Car(Property):
-    def __init__(self, worth=0):
-        super().__init__(worth)
+    def __init__(self, tax_percent=0.5, worth=0):
+        super().__init__(tax_percent, worth)
 
     def __str__(self):
         return 'Автомобиль'
 
-    def tax_calc(self):
-        return self.worth / 200
-
 
 class CountryHouse(Property):
-    def __init__(self, worth=0):
-        super().__init__(worth)
+    def __init__(self, tax_percent=0.2, worth=0):
+        super().__init__(tax_percent, worth)
 
     def __str__(self):
         return 'Дача'
-
-    def tax_calc(self):
-        return self.worth / 500
 
 
 property_list = [Apartment(), Car(), CountryHouse()]

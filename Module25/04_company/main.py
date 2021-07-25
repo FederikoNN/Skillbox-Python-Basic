@@ -25,10 +25,13 @@ class Employee(Person):
     def salary_accrual(self):
         return self.__salary
 
+    def set_salary(self, amount):
+        self.__salary = amount
+
 
 class Agent(Employee):
-    def __init__(self, name, age, salary=10000, sales_volume=0):
-        super().__init__(name, age, salary)
+    def __init__(self, name, age, sales_volume=0):
+        super().__init__(name, age)
         self.sales_volume = sales_volume
 
     def salary_accrual(self):
@@ -36,16 +39,14 @@ class Agent(Employee):
 
 
 class Manager(Employee):
-    def __init__(self, name, age, salary=13000):
-        super().__init__(name, age, salary)
-        # TODO, стоит так же указать создание аргумента __salary.
-        #  Чтобы эта информация была в методе init. Возможно, параметр salary, не должен быть обязательный при создании объекта класса.
-        #  И стоит всегда указывать его значение в методе init.
+    def __init__(self, name, age):
+        super().__init__(name, age)
+        self.set_salary(13000)
 
 
 class Worker(Employee):
-    def __init__(self, name, age, salary=10000, hours_worked=0):
-        super().__init__(name, age, salary)
+    def __init__(self, name, age, hours_worked=0):
+        super().__init__(name, age)
         self.hours_worked = hours_worked
 
     def salary_accrual(self):

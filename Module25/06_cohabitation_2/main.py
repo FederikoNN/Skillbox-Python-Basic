@@ -2,14 +2,11 @@ import random
 
 
 class FamilyMember:
-    # TODO, стоит добавить человеку аргумент "дом" изначально равный None
-    #  И метод, в котором присвоим человеку дом. =)
-
-    def __init__(self, name, home, satiety=0, happiness=0):
+    def __init__(self, name, satiety=30, happiness=100, home=None):
         self.name = name
         self.satiety = satiety
         self.happiness = happiness
-        self.home = home
+        self.set_home(home)
 
     def get_name(self):
         return self.name
@@ -22,12 +19,9 @@ class FamilyMember:
             self.home.food -= feed
             self.home.eaten += feed
 
-    # TODO, т..к у жены этих методов нет, то создавать пустые методы не нужно =)
-    def work(self):
-        pass
-
-    def play(self):
-        pass
+    def set_home(self, house):
+        if isinstance(house, Home):
+            self.home = house
 
     def is_alive(self):
         if self.satiety < 0:
@@ -46,10 +40,6 @@ class FamilyMember:
 
 
 class Husband(FamilyMember):
-    # TODO, если метод не переопределяется, то создавать его не нужно! =)
-    def __init__(self, name, home, satiety=30, happiness=100):
-        super().__init__(name, home, satiety, happiness)
-
     def work(self):
         print(f'{self.name} работает')
         self.satiety -= 10
@@ -68,6 +58,8 @@ class Husband(FamilyMember):
         self.satiety -= 10
 
     def one_day_of_life(self):
+        if self.home.dirt > 90:
+            self.happiness -= 10
         cube_gen = random.randint(1, 6)
         if self.satiety < 20:
             self.eat()
@@ -83,8 +75,8 @@ class Husband(FamilyMember):
 
 
 class Wife(FamilyMember):
-    def __init__(self, name, home, satiety=30, happiness=100, furs=0):
-        super().__init__(name, home, satiety, happiness)
+    def __init__(self, name, furs=0):
+        super().__init__(name)
         self.furs = furs
 
     def food_shopping(self, quantity):
@@ -118,6 +110,8 @@ class Wife(FamilyMember):
         self.satiety -= 10
 
     def one_day_of_life(self):
+        if self.home.dirt > 90:
+            self.happiness -= 10
         cube_gen = random.randint(1, 6)
         if self.satiety < 20:
             self.eat()
@@ -137,10 +131,6 @@ class Wife(FamilyMember):
 
 
 class Cat(FamilyMember):
-    # TODO, если метод не переопределяется, то создавать его не нужно!
-    def __init__(self, name, home, satiety=30, happiness=0):
-        super().__init__(name, home, satiety, happiness)
-
     def eat(self):
         print(f'Кот {self.name} покушал')
         if self.satiety >= 0:
@@ -199,9 +189,12 @@ class Home:
 
 
 home_sweet = Home()
-husband = Husband(name='Николай', home=home_sweet)
-wife = Wife(name='Ольга', home=home_sweet)
-cat = Cat(name='Анимподист', home=home_sweet)
+husband = Husband(name='Николай')
+husband.set_home(home_sweet)
+wife = Wife(name='Ольга')
+wife.set_home(home_sweet)
+cat = Cat(name='Анимподист')
+cat.set_home(home_sweet)
 home_sweet.add_resident(husband)
 home_sweet.add_resident(wife)
 home_sweet.add_resident(cat)
@@ -212,12 +205,6 @@ for day in range(1, 366):
         break
     if not husband.is_happiness() or not wife.is_happiness():
         break
-
-    # TODO, предлагаю перенести эту проверку в классы Мужа и Жены, или в FamilyMember.
-    #  Но, в таком случае, класс FamilyMember не должен быть родительским у кота =)
-    if home_sweet.dirt > 90:
-        husband.happiness -= 10
-        wife.happiness -= 10
     home_sweet.life_flow()
     home_sweet.dirt += 5
 print(f'За год было заработано {home_sweet.earned} денег, съедено еды: {home_sweet.eaten} единиц,'

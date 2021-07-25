@@ -1,16 +1,6 @@
 class MyDict(dict):
-    # TODO, если метод не переопределяется, то создавать его не нужно.
-    def __init__(self):
-        super().__init__()
-
     def get(self, key):
-        # TODO, у метода get словарей есть параметр default.
-        #  Предлагаю в этом месте, просто возвращать запуск супер метода с ключём и значением default равным "0".
-        #  В одну строку кода.
-        if key in self.keys():
-            return self[key]
-        else:
-            return 0
+        return dict.get(self, key, 0)
 
 
 families = MyDict()
