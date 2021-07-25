@@ -60,3 +60,5 @@ employers = [Manager('Bob', 25), Manager('Jlob', 63), Manager('Gleb', 28),
 
 for employer in employers:
     print(f'Заработная плата у {employer.get_name()} составляет {employer.salary_accrual()} единиц.')
+
+# зачёт!

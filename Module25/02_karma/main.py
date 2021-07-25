@@ -64,3 +64,5 @@ with open('karma.log', 'w') as file:
         if buddhist.karma >= buddhist.get_karma_purpose():
             print(f'Просветление достигнуто за {days_count} дней!')
             break
+
+# зачёт!
