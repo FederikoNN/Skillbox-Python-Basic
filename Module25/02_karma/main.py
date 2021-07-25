@@ -1,27 +1,27 @@
 import random
 
 
-class KillError:
+class KillError(Exception):
     def __str__(self):
         return 'вызвано исключение KillError'
 
 
-class DrunkError:
+class DrunkError(Exception):
     def __str__(self):
         return 'вызвано исключение DrunkError'
 
 
-class CarCrashError:
+class CarCrashError(Exception):
     def __str__(self):
         return 'вызвано исключение CarCrashError'
 
 
-class GluttonyError:
+class GluttonyError(Exception):
     def __str__(self):
         return 'вызвано исключение GluttonyError'
 
 
-class DepressionError:
+class DepressionError(Exception):
     def __str__(self):
         return 'вызвано исключение DepressionError'
 
@@ -46,7 +46,7 @@ class BuddhistLife(Karma):
             self.karma = 0
         if random.randint(1, 10) == 1:
             # self.karma -= 50
-            raise Exception(random.choice(self.get_exceptions()))
+            raise random.choice(self.get_exceptions())
         self.karma += random.randint(1, 7)
         return self.karma
 
