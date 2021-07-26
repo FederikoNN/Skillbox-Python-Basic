@@ -6,8 +6,7 @@ class FamilyMember:
         self.name = name
         self.satiety = satiety
         self.happiness = happiness
-        # TODO, стоит указать аргумент self.home в методе init.
-        #  Метод init должен содержать в себе информацию о всех аргументах self нашего класса.
+        self.home = home
         self.set_home(home)
 
     def get_name(self):

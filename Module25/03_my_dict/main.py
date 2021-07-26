@@ -1,7 +1,6 @@
 class MyDict(dict):
     def get(self, key):
-        # TODO, было бы правильней вызывать супер метод get, вместо обращения к родительскому классу напрямую.
-        return dict.get(self, key, 0)
+        return super().get(key, 0)
 
 
 families = MyDict()

@@ -14,7 +14,8 @@ class Apartment(Property):
 
     def __init__(self, tax_percent=0.1, worth=0):
         super().__init__(tax_percent, worth)
-        # TODO, пожалуйста, обратите внимание, аргументы self.worth и self.tax_percent стоит перечислить в методах init.
+        self.worth = worth
+        self.tax_percent = tax_percent
 
     def __str__(self):
         return 'Квартира'
@@ -23,6 +24,8 @@ class Apartment(Property):
 class Car(Property):
     def __init__(self, tax_percent=0.5, worth=0):
         super().__init__(tax_percent, worth)
+        self.worth = worth
+        self.tax_percent = tax_percent
 
     def __str__(self):
         return 'Автомобиль'
@@ -31,6 +34,8 @@ class Car(Property):
 class CountryHouse(Property):
     def __init__(self, tax_percent=0.2, worth=0):
         super().__init__(tax_percent, worth)
+        self.worth = worth
+        self.tax_percent = tax_percent
 
     def __str__(self):
         return 'Дача'
