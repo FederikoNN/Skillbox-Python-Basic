@@ -210,3 +210,5 @@ for day in range(1, 366):
     home_sweet.dirt += 5
 print(f'За год было заработано {home_sweet.earned} денег, съедено еды: {home_sweet.eaten} единиц,'
       f' съедено котом {home_sweet.eaten_cat} единиц еды.\nЗато жена купила {wife.furs} шуб!')
+
+# зачёт!

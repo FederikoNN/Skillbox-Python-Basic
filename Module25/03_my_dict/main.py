@@ -12,3 +12,5 @@ for key in families.keys():
     print(f'families.get({key}) -> {families.get(key)}')
 key = 'Моня Иванов'
 print(f'families.get({key}) -> {families.get(key)}')
+
+# зачёт!
