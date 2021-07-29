@@ -1,7 +1,7 @@
 import os.path
 
 
-def gen_files_path(folder: str, path=os.path.abspath(os.sep)) -> None:
+def gen_files_path(folder: str, path=os.path.abspath(os.sep)) -> str:
     for elem in os.listdir(path):
         path_elem = os.path.join(os.path.abspath(path), elem)
         if os.path.isfile(path_elem):
