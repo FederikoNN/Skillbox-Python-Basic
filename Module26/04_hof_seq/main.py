@@ -1,8 +1,8 @@
 class QHofstadter:
     def __init__(self, list_in: list) -> None:
-        self.counter = 2
         if list_in[0] == list_in[1] == 1:
             self.list_in = list_in
+            self.counter = 2
         else:
             raise StopIteration('Последовательность завершилась')
 
