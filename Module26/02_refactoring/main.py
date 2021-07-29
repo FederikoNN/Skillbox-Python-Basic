@@ -6,6 +6,10 @@ result = (f'\nНайдено: {x} x {y} = {to_find}' for x in list_1 for y in li
 for i in result:
     print(i)
 
+
+# TODO, пожалуйста, обратите внимание, в текущем решении не хватает ряда выводов, которые присутствовали в изначальном.
+#  Стоит реализовать решением функцией-генератором =)
+
 # can_continue = True
 # for x in list_1:
 #     for y in list_2:

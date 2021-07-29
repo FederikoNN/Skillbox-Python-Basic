@@ -26,3 +26,5 @@ try:
         print(f'{i_elem} элемент последовательности Q Хофштадтера: \t{next(q_sequence)}')
 except StopIteration as msg:
     print(msg)
+
+# зачёт!

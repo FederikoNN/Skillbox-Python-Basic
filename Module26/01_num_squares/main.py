@@ -32,3 +32,5 @@ for value in square_num(N):
 square_gen = (num ** 2 for num in range(1, N + 1))
 for value in square_gen:
     print(value, end=' ')
+
+# зачёт!
