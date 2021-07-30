@@ -21,3 +21,5 @@ folder_search = input('Какой каталог ищем? ')
 print('\nПути всех встреченных файлов:\n')
 if not gen_files_path(folder=folder_search, path=path_search):
     print(f'\nКаталог {folder_search} не найден.')
+
+# зачёт!

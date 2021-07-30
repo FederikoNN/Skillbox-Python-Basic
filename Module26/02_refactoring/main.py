@@ -20,3 +20,5 @@ def find(list_01, list_02, num):
 a = find(list_1, list_2, to_find)
 for i in a:
     print(i)
+
+# зачёт!
