@@ -34,3 +34,4 @@ for value in square_gen:
     print(value, end=' ')
 
 # зачёт!
+# зачёт!
