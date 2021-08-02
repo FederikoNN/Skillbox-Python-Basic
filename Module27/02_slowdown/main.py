@@ -8,6 +8,7 @@ def slowdown(func: Callable) -> Any:
 
     @functools.wraps(func)
     def wrapped_func(*args, **kwargs):
+        # TODO, задание стоит решить без использования переменной флага top.
         nonlocal top
         if top:
             top = False

@@ -40,3 +40,5 @@ test()
 print('\nОбщее количество вызовов функций:\n')
 for key, value in func_call.items():
     print(f'Функция {key} была вызвана {value} раз(а).')
+
+# зачёт!

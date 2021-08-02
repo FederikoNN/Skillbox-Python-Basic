@@ -52,3 +52,5 @@ def calculating_math_func(data, fact_result={}):
 test()
 
 calculating_math_func(10)
+
+# зачёт!

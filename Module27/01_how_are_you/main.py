@@ -7,6 +7,8 @@ def how_are_you(func: Callable) -> Callable:
 
     @functools.wraps(func)
     def wrapped_func(*args, **kwargs) -> Any:
+        # TODO, предлагаю попробовать уйти от переменной флага top и попробовать решить задание без использования её.
+        #  Наш декоратор должен выполнять одинаковые действия для всех запусков функций, не только первого =)
         nonlocal top
         if top:
             top = False

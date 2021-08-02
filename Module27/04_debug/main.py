@@ -30,3 +30,5 @@ def greeting(name, age=None):
 greeting("Том")
 greeting("Миша", age=100)
 greeting(name="Катя", age=16)
+
+# зачёт!
