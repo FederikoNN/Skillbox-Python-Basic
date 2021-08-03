@@ -7,17 +7,9 @@ def how_are_you(func: Callable) -> Callable:
 
     @functools.wraps(func)
     def wrapped_func(*args, **kwargs) -> Any:
-        # TODO, предлагаю попробовать уйти от переменной флага top и попробовать решить задание без использования её.
-        #  Наш декоратор должен выполнять одинаковые действия для всех запусков функций, не только первого =)
-        nonlocal top
-        if top:
-            top = False
-            input('Как дела?')
-            print('А у меня не очень! Ладно, держи свою функцию.')
-            result = func(*args, **kwargs)
-        else:
-            result = func(*args, **kwargs)
-            top = True
+        input('Как дела? ')
+        print('А у меня не очень! Ладно, держи свою функцию.')
+        result = func(*args, **kwargs)
         return result
 
     return wrapped_func
@@ -32,8 +24,8 @@ def test():
 def print_number(num):
     if num == 0:
         return
-    print_number(num - 1)
-    print(num)
+    for i_num in range(num):
+        print(i_num)
 
 
 test()
