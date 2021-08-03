@@ -29,3 +29,5 @@ def print_number(num):
 test()
 
 print_number(3)
+
+# зачёт!

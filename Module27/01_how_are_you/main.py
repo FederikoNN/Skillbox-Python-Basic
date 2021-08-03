@@ -3,7 +3,7 @@ import functools
 
 
 def how_are_you(func: Callable) -> Callable:
-    top = True
+    # top = True  # если переменная в коде не используется, стоит её удалить =)
 
     @functools.wraps(func)
     def wrapped_func(*args, **kwargs) -> Any:
@@ -31,3 +31,5 @@ def print_number(num):
 test()
 
 print_number(3)
+
+# зачёт!
