@@ -46,35 +46,30 @@ class Triangle:
         return self._base * self._height * 0.5
 
 
-class Cube(Quadratum):
-    def __init__(self, segment: float):
-        super().__init__(segment)
-        # TODO, стоит избегать вызовов методов в методе init нашего класса.
-        #  Предлагаю просто создать аргумент self.data_cube при помощи list_compression
-        self.set()
-
-    def set(self):
-        self.data_cube = [Quadratum(self.segment), Quadratum(self.segment), Quadratum(self.segment),
-                          Quadratum(self.segment), Quadratum(self.segment), Quadratum(self.segment)]
-
+class SumSquareMixin:
     def square(self):
         self.set()
-        return sum([item.square() for item in self.data_cube])
+        return sum([item.square() for item in self.data])
 
 
-class Pyramid(Triangle):
+class Cube(SumSquareMixin, Quadratum):
+    def __init__(self, segment: float):
+        super().__init__(segment)
+        self.data = [Quadratum(self.segment) for _ in range(6)]
+
+    def set(self):
+        self.data = [Quadratum(self.segment), Quadratum(self.segment), Quadratum(self.segment),
+                     Quadratum(self.segment), Quadratum(self.segment), Quadratum(self.segment)]
+
+
+class Pyramid(SumSquareMixin, Triangle):
     def __init__(self, base: float, height: float):
         super().__init__(base, height)
         self.set()
 
     def set(self):
-        self.data_pyramid = [Quadratum(self.base), Triangle(self.base, self.height), Triangle(self.base, self.height),
-                             Triangle(self.base, self.height),
-                             Triangle(self.base, self.height)]
-
-    def square(self):
-        self.set()
-        return sum([item.square() for item in self.data_pyramid])
+        self.data = [Quadratum(self.base), Triangle(self.base, self.height), Triangle(self.base, self.height),
+                     Triangle(self.base, self.height), Triangle(self.base, self.height)]
 
 
 test_01 = Quadratum(1)
@@ -89,6 +84,3 @@ test_02.height = 5
 print(
     f'Площадь поверхности пирамиды (высота боковой грани = {test_02.height}; основание= {test_02.base} = {test_02.square()}')
 
-# TODO, предлагаю попробовать добавить в решение класс Миксин
-#  с одним методом - расчётом суммы площадей сторон фигуры. Стоит сделать класс Миксин одним из родительских классов,
-#  при создании таких классов как Pyramid и Cube.
