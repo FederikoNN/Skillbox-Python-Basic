@@ -9,6 +9,8 @@ class File:
 
     def __enter__(self) -> TextIO:
         if os.path.exists(self.file_name):
+            # TODO, если мы записываем в файл русские символы, или выводим их из файла, то
+            #  стоит использовать кодировку utf-8, иначе, пользователи Windows, не смогу прочитать данные из файла. =)
             self.file = open(self.file_name, self.mode)
         else:
             self.file = open(self.file_name, 'w')

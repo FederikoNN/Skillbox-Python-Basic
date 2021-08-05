@@ -49,6 +49,8 @@ class Triangle:
 class Cube(Quadratum):
     def __init__(self, segment: float):
         super().__init__(segment)
+        # TODO, стоит избегать вызовов методов в методе init нашего класса.
+        #  Предлагаю просто создать аргумент self.data_cube при помощи list_compression
         self.set()
 
     def set(self):
@@ -86,3 +88,7 @@ test_02.base = 3
 test_02.height = 5
 print(
     f'Площадь поверхности пирамиды (высота боковой грани = {test_02.height}; основание= {test_02.base} = {test_02.square()}')
+
+# TODO, предлагаю попробовать добавить в решение класс Миксин
+#  с одним методом - расчётом суммы площадей сторон фигуры. Стоит сделать класс Миксин одним из родительских классов,
+#  при создании таких классов как Pyramid и Cube.

@@ -12,9 +12,14 @@ class Date:
 
     @classmethod
     def from_string(cls, string):
+        # TODO, сразу три параметра из одного списка, можно создать следующим образом
+        #  a, b, c = [1, 2, 3]
+        #  Срезы, в таком случае, будут не нужны.
         cls.day = string.split('-')[0]
         cls.month = string.split('-')[1]
         cls.year = string.split('-')[2]
+        # TODO, пожалуйста, обратите внимание, в аннотации указано, что класс работает с числом,
+        #  а передаём в его аргументы текст.
         return Date(cls.day, cls.month, cls.year)
 
     @classmethod
