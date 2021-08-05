@@ -13,7 +13,7 @@ class Date:
     @classmethod
     def from_string(cls, string):
         day, month, year = string.split('-')
-        return Date(day, month, year)
+        return Date(day, month, year)  # TODO, только вместо Date, cls. Т.к. возвращаем текущий объект класса, а не новый =)
 
     @classmethod
     def is_date_valid(cls, string):

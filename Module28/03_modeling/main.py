@@ -74,3 +74,5 @@ print(
 test_02 = Pyramid(3, 5)
 print(
     f'Площадь поверхности пирамиды (высота боковой грани = {test_02.height}; основание= {test_02.base} = {test_02.square()}')
+
+# зачёт!
