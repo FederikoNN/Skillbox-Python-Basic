@@ -27,3 +27,5 @@ with File('example.txt', 'r') as file:
 
 with File('example.txt', 'a') as file:
     file.write('Всем пока!')
+
+# зачёт!
