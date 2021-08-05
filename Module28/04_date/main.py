@@ -12,10 +12,8 @@ class Date:
 
     @classmethod
     def from_string(cls, string):
-        # TODO Создавать переменные лучше без использования cls.
-        #  Т.к. нам необходимо вернуть не новый объект класса Date, а текущий, передав в него эти переменные.
-        cls.day, cls.month, cls.year = string.split('-')
-        return Date(cls.day, cls.month, cls.year)
+        day, month, year = string.split('-')
+        return Date(day, month, year)
 
     @classmethod
     def is_date_valid(cls, string):

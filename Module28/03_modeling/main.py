@@ -48,9 +48,6 @@ class Triangle:
 
 class SumSquareMixin:
     def square(self):
-        self.set()
-        # TODO, пожалуйста, обратите внимание, в классе Mixin вызов этого метода не нужен.
-        #  Все необходимые параметры, мы возьмём из методов init.
         return sum([item.square() for item in self.data])
 
 
@@ -59,21 +56,10 @@ class Cube(SumSquareMixin, Quadratum):
         super().__init__(segment)
         self.data = [Quadratum(self.segment) for _ in range(6)]
 
-    # TODO, пожалуйста, обратите внимание, метод получился лишний, т.к. аргумент self.data создаётся в методе init.
-    def set(self):
-        self.data = [Quadratum(self.segment), Quadratum(self.segment), Quadratum(self.segment),
-                     Quadratum(self.segment), Quadratum(self.segment), Quadratum(self.segment)]
-
 
 class Pyramid(SumSquareMixin, Triangle):
     def __init__(self, base: float, height: float):
         super().__init__(base, height)
-        # TODO, стоит уйти от вызова методов внутри метода init и создавать аргумент
-        #  self.data именно в этом методе.
-        #  Можно просто скопировать код из метода set, а сам метод удалить =)
-        self.set()
-
-    def set(self):
         self.data = [Quadratum(self.base), Triangle(self.base, self.height), Triangle(self.base, self.height),
                      Triangle(self.base, self.height), Triangle(self.base, self.height)]
 
@@ -85,8 +71,6 @@ print(f'Площадь квадрата со стороной {test_01.segment} 
 test_02 = Pyramid(2, 1)
 print(
     f'Площадь поверхности пирамиды (высота боковой грани = {test_02.height}; основание= {test_02.base} = {test_02.square()}')
-test_02.base = 3
-test_02.height = 5
+test_02 = Pyramid(3, 5)
 print(
     f'Площадь поверхности пирамиды (высота боковой грани = {test_02.height}; основание= {test_02.base} = {test_02.square()}')
-
