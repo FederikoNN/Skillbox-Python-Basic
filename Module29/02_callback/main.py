@@ -6,10 +6,14 @@ app = {}
 
 def callback(key: str):
     def callback_wrapped(func: Callable) -> Callable:
+
+        # TODO, функцию было бы правильней добавлять в словарь в этом месте кода
+
         @functools.wraps(func)
         def wrapper():
             app[key] = func
-
+            # TODO, стоит обязательно запустить функцию и вернуть её запуск.
+            #  Иначе, результат работы функции потеряется в декораторе, если функция что-то возвращает.
         return wrapper
 
     return callback_wrapped
