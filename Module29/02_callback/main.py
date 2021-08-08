@@ -1,9 +1,33 @@
-# TODO здесь писать код
+import functools
+from typing import Callable
+
+app = {}
 
 
-# TODO, стоит создать внешнюю переменную "app" (пустой словарь).
-#  При помощи декоратора, необходимо просто заполнить словарь данными.
-#  Где ключ это указанный текст в декораторе "//", а значение - функция, к которой мы применили декоратор.
-#  Код из "Основной код", стоит скопировать в этот файл сразу =)
-#  При помощи "route = app.get('//')", мы получаем значение словаря по ключу "//".
-#  Т.к. значение, это функция, то стоит просто вызвать route как функцию.
+def callback(key: str):
+    def callback_wrapped(func: Callable) -> Callable:
+        @functools.wraps(func)
+        def wrapper():
+            app[key] = func
+
+        return wrapper
+
+    return callback_wrapped
+
+
+@callback('//')
+def example():
+    print('Пример функции, которая возвращает ответ сервера')
+    return 'OK'
+
+
+example()
+
+route = app.get('//')
+if route:
+    response = route()
+    print('Ответ:', response)
+else:
+    print('Такого пути нет')
+
+
