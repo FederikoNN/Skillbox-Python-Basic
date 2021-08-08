@@ -30,3 +30,5 @@ def add_comment():
 
 delete_site()
 add_comment()
+
+# зачёт!
