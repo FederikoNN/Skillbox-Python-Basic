@@ -6,14 +6,13 @@ app = {}
 
 def callback(key: str):
     def callback_wrapped(func: Callable) -> Callable:
-
-        # TODO, функцию было бы правильней добавлять в словарь в этом месте кода
+        app[key] = func
 
         @functools.wraps(func)
         def wrapper():
-            app[key] = func
-            # TODO, стоит обязательно запустить функцию и вернуть её запуск.
-            #  Иначе, результат работы функции потеряется в декораторе, если функция что-то возвращает.
+            result = func()
+            return result
+
         return wrapper
 
     return callback_wrapped
@@ -25,13 +24,9 @@ def example():
     return 'OK'
 
 
-example()
-
 route = app.get('//')
 if route:
     response = route()
     print('Ответ:', response)
 else:
     print('Такого пути нет')
-
-
