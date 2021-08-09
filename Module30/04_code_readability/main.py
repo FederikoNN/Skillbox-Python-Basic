@@ -17,3 +17,5 @@ print(simple_num_list)
 
 simple_num_list = list(filter(lambda num: all(map(lambda i_num: num % i_num != 0, range(2, num))), range(2, 1000)))
 print(simple_num_list)
+
+# зачёт!

@@ -12,3 +12,4 @@ print(names_filter)
 number_multi = reduce(lambda num_1, num_2: num_1 * num_2, numbers)
 print(f'Произведение элементов списка numbers: {number_multi}')
 
+# зачёт!

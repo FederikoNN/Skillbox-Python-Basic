@@ -9,4 +9,6 @@ def can_be_poly(string):
 
 
 print(can_be_poly('ababc'))
-print(can_be_poly('abbbc'))
+print(can_be_poly('abbcb'))
+
+# зачёт!
